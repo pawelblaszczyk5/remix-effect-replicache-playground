@@ -27,12 +27,15 @@
 		"react-dom": "19.0.0-rc-9c6806964f-20240703"
 	},
 	"devDependencies": {
+		"@babel/preset-typescript": "^7.24.7",
 		"@remix-run/dev": "^2.10.1",
 		"@todofall/eslint-config": "workspace:*",
 		"@todofall/typescript-config": "workspace:*",
 		"@types/react": "npm:types-react@19.0.0-rc.1",
 		"@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+		"babel-plugin-react-compiler": "0.0.0-experimental-696af53-20240625",
 		"typescript": "^5.5.3",
-		"vite": "^5.3.3"
+		"vite": "^5.3.3",
+		"vite-plugin-babel": "^1.2.0"
 	}
 }
