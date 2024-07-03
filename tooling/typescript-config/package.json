@@ -1,0 +1,14 @@
+{
+	"name": "@todofall/typescript-config",
+	"version": "0.0.1",
+	"private": true,
+	"description": "Shared TypeScript config",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pawelblaszczyk5/todofall",
+		"directory": "tooling/typescript-config"
+	},
+	"files": [
+		"core.json"
+	]
+}

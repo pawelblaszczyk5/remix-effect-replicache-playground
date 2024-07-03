@@ -1,0 +1,18 @@
+name: Setup
+description: Setup environment specific to this monorepo, including e.g. pnpm and node
+
+runs:
+  using: composite
+  steps:
+    - name: Install pnpm
+      uses: pnpm/action-setup@a3252b78c470c02df07e9d59298aecedc3ccdd6d # pin@v3
+
+    - name: Install node
+      uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # pin@v4.0.2
+      with:
+        node-version-file: "package.json"
+        cache: "pnpm"
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm i

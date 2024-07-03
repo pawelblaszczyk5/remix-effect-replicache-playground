@@ -1,0 +1,1 @@
+# @todofall/eslint-config

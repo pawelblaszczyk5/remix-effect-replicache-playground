@@ -1,0 +1,11 @@
+{
+	"extends": ["@todofall/typescript-config/core"],
+	"compilerOptions": {
+		"composite": true,
+
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"noEmit": true,
+		"jsx": "preserve"
+	},
+	"include": ["app"]
+}

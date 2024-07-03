@@ -1,0 +1,107 @@
+name: 🧑‍🔬 CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+env:
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+
+jobs:
+  build:
+    name: 🛠️ Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+
+      - name: Setup
+        uses: ./.github/composite-actions/setup
+
+      - name: Run
+        run: pnpm build
+
+  lint:
+    name: 🔬 Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+
+      - name: Setup
+        uses: ./.github/composite-actions/setup
+
+      - name: Run
+        run: pnpm lint
+
+  format:
+    name: 🔍 Format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+
+      - name: Setup
+        uses: ./.github/composite-actions/setup
+
+      - name: Run
+        run: pnpm format
+
+  spellcheck:
+    name: ❌ Spellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+
+      - name: Setup
+        uses: ./.github/composite-actions/setup
+
+      - name: Run
+        run: pnpm spellcheck
+
+  typecheck:
+    name: 🌀 Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+
+      - name: Setup
+        uses: ./.github/composite-actions/setup
+
+      - name: Run
+        run: pnpm typecheck
+
+  package-json-sorter:
+    name: 📑 package.json sorter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+
+      - name: Setup
+        uses: ./.github/composite-actions/setup
+
+      - name: Run
+        run: pnpm package-json-sorter
+
+  syncpack:
+    name: ♻️ Syncpack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+
+      - name: Setup
+        uses: ./.github/composite-actions/setup
+
+      - name: Run
+        run: pnpm syncpack

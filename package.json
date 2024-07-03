@@ -1,0 +1,55 @@
+{
+	"name": "@todofall/root",
+	"version": "0.0.1",
+	"private": true,
+	"description": "Root workspace",
+	"repository": "https://github.com/pawelblaszczyk5/todofall",
+	"type": "module",
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"format": "prettier \".\" --check",
+		"format:fix": "prettier \".\" --write",
+		"lint": "turbo run lint",
+		"lint:fix": "turbo run lint:fix",
+		"package-json-sorter": "sort-package-json \"package.json\" \"packages/*/package.json\" \"tooling/*/package.json\" --check",
+		"package-json-sorter:fix": "sort-package-json \"package.json\" \"packages/*/package.json\" \"tooling/*/package.json\"",
+		"spellcheck": "cspell \"**\" --no-progress --show-context --show-suggestions",
+		"syncpack": "syncpack lint",
+		"syncpack:fix": "syncpack fix-mismatches",
+		"typecheck": "turbo run typecheck",
+		"update-dependencies": "pnpm update !react !react-dom --recursive --latest --interactive"
+	},
+	"devDependencies": {
+		"cspell": "^8.10.0",
+		"prettier": "^3.3.2",
+		"sort-package-json": "^2.10.0",
+		"syncpack": "^12.3.3",
+		"turbo": "2.0.6",
+		"typescript": "^5.5.3"
+	},
+	"packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
+	"engines": {
+		"node": "22.3.0",
+		"pnpm": "9.4.0"
+	},
+	"engineStrict": true,
+	"pnpm": {
+		"peerDependencyRules": {
+			"allowedVersions": {
+				"@types/react": "npm:types-react@19.0.0-rc.1",
+				"@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+				"eslint": "~9.6.0",
+				"react": "19.0.0-rc-9c6806964f-20240703",
+				"react-dom": "19.0.0-rc-9c6806964f-20240703"
+			}
+		},
+		"overrides": {
+			"@types/react": "npm:types-react@19.0.0-rc.1",
+			"@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+		},
+		"patchedDependencies": {
+			"eslint-plugin-import-x@0.5.3": "patches/eslint-plugin-import-x@0.5.3.patch"
+		}
+	}
+}

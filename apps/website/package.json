@@ -1,0 +1,38 @@
+{
+	"name": "@todofall/website",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pawelblaszczyk5/todofall",
+		"directory": "apps/website"
+	},
+	"scripts": {
+		"build": "remix vite:build",
+		"dev": "remix vite:dev",
+		"lint": "eslint",
+		"lint:fix": "eslint --fix",
+		"typecheck": "tsc -b"
+	},
+	"imports": {
+		"#src/*": "./src/*"
+	},
+	"dependencies": {
+		"@remix-run/node": "~2.10.1",
+		"@remix-run/react": "~2.10.1",
+		"@remix-run/serve": "~2.10.1",
+		"isbot": "~5.1.11",
+		"react": "19.0.0-rc-9c6806964f-20240703",
+		"react-dom": "19.0.0-rc-9c6806964f-20240703"
+	},
+	"devDependencies": {
+		"@remix-run/dev": "^2.10.1",
+		"@todofall/eslint-config": "workspace:*",
+		"@todofall/typescript-config": "workspace:*",
+		"@types/react": "npm:types-react@19.0.0-rc.1",
+		"@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+		"typescript": "^5.5.3",
+		"vite": "^5.3.3"
+	}
+}
