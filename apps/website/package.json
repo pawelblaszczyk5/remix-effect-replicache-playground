@@ -16,7 +16,7 @@
 		"typecheck": "tsc -b"
 	},
 	"imports": {
-		"#src/*": "./src/*"
+		"#app/*": "./app/*"
 	},
 	"dependencies": {
 		"@remix-run/node": "~2.10.1",
