@@ -5,7 +5,8 @@
 
 		"lib": ["ESNext", "DOM", "DOM.Iterable"],
 		"noEmit": true,
-		"jsx": "preserve"
+		"jsx": "preserve",
+		"types": ["@remix-run/node", "vite/client", "@remix-run/react/future/single-fetch.d.ts"]
 	},
 	"include": ["app"]
 }
