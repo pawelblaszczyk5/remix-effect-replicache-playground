@@ -3,7 +3,7 @@ import type { MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { Suspense, use } from "react";
 
-import { defineLoader } from "#app/lib/remix.js";
+import { defineLoader } from "#src/lib/remix.js";
 
 export const meta = (() => [
 	{ title: "New Remix App" },

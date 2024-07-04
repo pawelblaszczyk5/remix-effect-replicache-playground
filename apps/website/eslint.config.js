@@ -19,7 +19,7 @@ export default [
 		},
 	},
 	{
-		files: ["app/routes/**/*.tsx", "app/root.tsx", "app/entry.server.tsx"],
+		files: ["src/routes/**/*.tsx", "src/root.tsx", "src/entry.server.tsx"],
 		rules: {
 			"import-x/no-default-export": "off",
 			"react-refresh/only-export-components": "off",

@@ -5,6 +5,7 @@ import babel from "vite-plugin-babel";
 export default defineConfig({
 	plugins: [
 		remix({
+			appDirectory: "src",
 			buildDirectory: "dist",
 			future: {
 				unstable_fogOfWar: true,
