@@ -1,8 +1,18 @@
+import type { LinksFunction } from "@remix-run/node";
+
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 
 import { styleSheet } from "@todofall/css";
+import cssResetStylesheet from "@todofall/css-reset?url";
 
-export const Layout = ({ children }: { readonly children: React.ReactNode }) => (
+export const links = (() => [
+	{
+		href: cssResetStylesheet,
+		rel: "stylesheet",
+	},
+]) satisfies LinksFunction;
+
+export const Layout = ({ children }: Readonly<{ children: React.ReactNode }>) => (
 	<html lang="en">
 		<head>
 			<meta charSet="utf-8" />

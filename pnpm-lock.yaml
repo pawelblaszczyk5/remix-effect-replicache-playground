@@ -50,6 +50,9 @@ importers:
       '@todofall/css':
         specifier: workspace:*
         version: link:../../packages/css
+      '@todofall/css-reset':
+        specifier: workspace:*
+        version: link:../../packages/css-reset
       isbot:
         specifier: ~5.1.11
         version: 5.1.11
@@ -115,6 +118,8 @@ importers:
       typescript:
         specifier: ^5.5.3
         version: 5.5.3
+
+  packages/css-reset: {}
 
   packages/invariant:
     devDependencies:
