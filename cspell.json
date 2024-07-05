@@ -18,7 +18,8 @@
 		"tsbuildinfo",
 		"tseslint",
 		"typecheck",
-		"typedefs"
+		"typedefs",
+		"unitless"
 	],
 	"enableGlobDot": true,
 	"enableFiletypes": ["dockerfile", "github-actions-workflow"]

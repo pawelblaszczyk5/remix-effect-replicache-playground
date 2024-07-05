@@ -1,0 +1,10 @@
+{
+	"extends": ["@todofall/typescript-config/core"],
+	"compilerOptions": {
+		"composite": true,
+
+		"lib": ["esnext"],
+		"noEmit": true
+	},
+	"include": ["src"]
+}

@@ -47,6 +47,9 @@ importers:
       '@remix-run/serve':
         specifier: ~2.10.2
         version: 2.10.2(typescript@5.5.3)
+      '@todofall/css':
+        specifier: workspace:*
+        version: link:../../packages/css
       isbot:
         specifier: ~5.1.11
         version: 5.1.11
@@ -90,6 +93,28 @@ importers:
       vite-plugin-babel:
         specifier: ^1.2.0
         version: 1.2.0(@babel/core@7.24.7)(vite@5.3.3(@types/node@20.14.10))
+
+  packages/css:
+    dependencies:
+      '@css-hooks/core':
+        specifier: ~2.0.4
+        version: 2.0.4
+      react:
+        specifier: 19.0.0-rc-9c6806964f-20240703
+        version: 19.0.0-rc-9c6806964f-20240703
+    devDependencies:
+      '@todofall/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@todofall/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      '@types/react':
+        specifier: npm:types-react@19.0.0-rc.1
+        version: types-react@19.0.0-rc.1
+      typescript:
+        specifier: ^5.5.3
+        version: 5.5.3
 
   packages/invariant:
     devDependencies:
@@ -659,6 +684,9 @@ packages:
   '@cspell/url@8.10.2':
     resolution: {integrity: sha512-ImrFRopPDzyc1ZtRuSNGVGAT2Kgq5YaR1bSQio9Je8V4IizFP5kzg1rPiJxJL0pbqlWDJe226xlPUfJhj/ygjw==}
     engines: {node: '>=18.0'}
+
+  '@css-hooks/core@2.0.4':
+    resolution: {integrity: sha512-M+GbFdzVk3gKhTH60RkjjBBR2JD/KTKtR2rb3Db2xTb7FFRpxOJhVJVa+CiWpXnrbMxvKQhOAdQHefapZh/H3Q==}
 
   '@effect/schema@0.66.5':
     resolution: {integrity: sha512-xfu5161JyrfAS1Ruwv0RXd4QFiCALbm3iu9nlW9N9K+52wbS0WdO6XUekPZ9V/O7LN+XmlIh5Y9xhJaIWCZ/gw==}
@@ -5232,6 +5260,8 @@ snapshots:
   '@cspell/strong-weak-map@8.10.2': {}
 
   '@cspell/url@8.10.2': {}
+
+  '@css-hooks/core@2.0.4': {}
 
   '@effect/schema@0.66.5(effect@3.0.3)(fast-check@3.17.2)':
     dependencies:
