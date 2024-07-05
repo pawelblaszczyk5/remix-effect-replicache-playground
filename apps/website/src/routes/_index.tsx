@@ -1,16 +1,9 @@
-import type { MetaFunction } from "@remix-run/node";
-
 import { useLoaderData } from "@remix-run/react";
 import { Suspense, use } from "react";
 
 import { css } from "@todofall/css";
 
 import { defineLoader } from "#src/lib/remix.js";
-
-export const meta = (() => [
-	{ title: "New Remix App" },
-	{ content: "Welcome to Remix!", name: "description" },
-]) satisfies MetaFunction;
 
 export const loader = defineLoader(async () => {
 	const date = new Promise<Date>(resolve => {
@@ -34,6 +27,8 @@ const IndexAppRoute = () => {
 	return (
 		<div>
 			<h1 style={css({ color: "blue", on: $ => [$("hover", { color: "red" })] })}>Hello world</h1>
+			<title>bla bla</title>
+			<meta content="Welcome to Remix!" name="description" />
 			<Suspense fallback={<p>Loading...</p>}>
 				<Test datePromise={date} />
 			</Suspense>
