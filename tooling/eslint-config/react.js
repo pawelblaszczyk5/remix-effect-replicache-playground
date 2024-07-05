@@ -19,7 +19,6 @@ export default tseslint.config(
 			"react/hook-use-state": ["error", { allowDestructuredState: true }],
 			"react/destructuring-assignment": "error",
 			"react/prefer-read-only-props": "error",
-			"react/button-has-type": "off",
 			"react/react-in-jsx-scope": "off",
 			"react/jsx-uses-react": "off",
 		},
