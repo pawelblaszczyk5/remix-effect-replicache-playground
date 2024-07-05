@@ -1,6 +1,6 @@
-const PREFIX = "Assertion failed";
+const PREFIX = "Invariant failed";
 
-export function assert(condition: any, message?: (() => string) | string): asserts condition {
+export function invariant(condition: any, message?: (() => string) | string): asserts condition {
 	if (condition) return;
 
 	const provided = typeof message === "function" ? message() : message;

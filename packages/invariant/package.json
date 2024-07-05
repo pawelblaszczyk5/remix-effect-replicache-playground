@@ -1,12 +1,12 @@
 {
-	"name": "@todofall/assert",
+	"name": "@todofall/invariant",
 	"version": "0.0.1",
 	"private": true,
-	"description": "Assert utility function",
+	"description": "Invariant utility function",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/pawelblaszczyk5/todofall",
-		"directory": "packages/assert"
+		"directory": "packages/invariant"
 	},
 	"type": "module",
 	"main": "./src/index.ts",
