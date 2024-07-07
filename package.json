@@ -21,7 +21,7 @@
 		"update-dependencies": "pnpm update !react !react-dom --recursive --latest --interactive"
 	},
 	"devDependencies": {
-		"cspell": "^8.10.2",
+		"cspell": "^8.10.4",
 		"prettier": "^3.3.2",
 		"sort-package-json": "^2.10.0",
 		"syncpack": "^12.3.3",
