@@ -12,8 +12,6 @@
 		"target": "ESNext",
 		"noErrorTruncation": true,
 
-		"outDir": "${configDir}/node_modules/.cache/tsbuildinfo/",
-
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,

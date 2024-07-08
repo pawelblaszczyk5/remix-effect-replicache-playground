@@ -1,10 +1,7 @@
 {
-	"extends": ["@todofall/typescript-config/core"],
+	"extends": "@todofall/typescript-config/no-build",
 	"compilerOptions": {
-		"composite": true,
-
 		"lib": ["ESNext", "DOM", "DOM.Iterable"],
-		"noEmit": true,
 		"jsx": "preserve",
 		"types": ["@remix-run/node", "node", "vite/client", "@remix-run/react/future/single-fetch.d.ts"]
 	},
