@@ -9,13 +9,6 @@
 		"directory": "packages/rpc-example"
 	},
 	"type": "module",
-	"main": "./src/index.ts",
-	"types": "./src/index.ts",
-	"scripts": {
-		"lint": "eslint",
-		"lint:fix": "eslint --fix",
-		"typecheck": "tsc"
-	},
 	"imports": {
 		"#src/*": "./src/*"
 	},
@@ -28,6 +21,13 @@
 			"import": "./src/schema.ts",
 			"types": "./src/schema.ts"
 		}
+	},
+	"main": "./src/index.ts",
+	"types": "./src/index.ts",
+	"scripts": {
+		"lint": "eslint",
+		"lint:fix": "eslint --fix",
+		"typecheck": "tsc"
 	},
 	"dependencies": {
 		"@effect/rpc": "~0.31.21",
