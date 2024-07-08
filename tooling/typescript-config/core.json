@@ -10,7 +10,6 @@
 		"incremental": true,
 		"module": "Preserve",
 		"target": "ESNext",
-		"allowImportingTsExtensions": true,
 		"noErrorTruncation": true,
 
 		"outDir": "${configDir}/node_modules/.cache/tsbuildinfo/",
