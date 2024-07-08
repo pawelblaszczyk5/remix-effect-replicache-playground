@@ -1,0 +1,35 @@
+{
+	"name": "@todofall/rpc-client",
+	"version": "0.0.1",
+	"private": true,
+	"description": "RPC client",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pawelblaszczyk5/todofall",
+		"directory": "packages/rpc-client"
+	},
+	"imports": {
+		"#src/*": "./src/*"
+	},
+	"type": "module",
+	"main": "./src/index.ts",
+	"types": "./src/index.ts",
+	"scripts": {
+		"lint": "eslint",
+		"lint:fix": "eslint --fix",
+		"typecheck": "tsc"
+	},
+	"dependencies": {
+		"@todofall/rpc-example": "workspace:*",
+		"@todofall/rpc-server": "workspace:*",
+		"@effect/platform": "~0.58.21",
+		"@effect/rpc": "~0.31.21",
+		"@effect/rpc-http": "~0.29.21",
+		"effect": "~3.4.8"
+	},
+	"devDependencies": {
+		"@todofall/eslint-config": "workspace:*",
+		"@todofall/typescript-config": "workspace:*",
+		"typescript": "^5.5.3"
+	}
+}

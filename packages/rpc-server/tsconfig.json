@@ -1,0 +1,7 @@
+{
+	"extends": "@todofall/typescript-config/no-build",
+	"compilerOptions": {
+		"lib": ["esnext"]
+	},
+	"include": ["src"]
+}
