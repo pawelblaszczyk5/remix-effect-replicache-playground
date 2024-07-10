@@ -28,7 +28,7 @@
 		"@todofall/rpc-example": "workspace:*",
 		"@todofall/rpc-server": "workspace:*",
 		"effect": "~3.4.8",
-		"isbot": "~5.1.11",
+		"isbot": "~5.1.12",
 		"react": "19.0.0-rc-9c6806964f-20240703",
 		"react-dom": "19.0.0-rc-9c6806964f-20240703"
 	},
