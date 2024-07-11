@@ -53,6 +53,9 @@ importers:
       '@todofall/css-reset':
         specifier: workspace:*
         version: link:../../packages/css-reset
+      effect:
+        specifier: ~3.5.1
+        version: 3.5.1
       isbot:
         specifier: ~5.1.12
         version: 5.1.12
@@ -2068,6 +2071,9 @@ packages:
 
   effect@3.0.3:
     resolution: {integrity: sha512-mgG+FoWrM4sny8OxDFWCpq+6LwGf9cK/JztVhxZQeZM9ZMXY+lKbdMEQmemNYce0QVAz2+YqUKwhKzOidwbZzg==}
+
+  effect@3.5.1:
+    resolution: {integrity: sha512-pwEqTNdPTvz7LzWKz99VeLLklOlgfqgWVXDepCudrkTU6ufaLqJ+62Sd42BaiGAt1vrnJBNhtpht+u+/7LK32g==}
 
   electron-to-chromium@1.4.806:
     resolution: {integrity: sha512-nkoEX2QIB8kwCOtvtgwhXWy2IHVcOLQZu9Qo36uaGB835mdX/h8uLRlosL6QIhLVUnAiicXRW00PwaPZC74Nrg==}
@@ -6769,6 +6775,8 @@ snapshots:
   ee-first@1.1.1: {}
 
   effect@3.0.3: {}
+
+  effect@3.5.1: {}
 
   electron-to-chromium@1.4.806: {}
 
