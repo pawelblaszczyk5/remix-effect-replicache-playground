@@ -44,17 +44,17 @@ type Serializable =
 export const defineEffectLoader = <A extends Serializable, E, R extends AppEnvironment | RequestEnvironment>(
 	effect: Effect.Effect<A, E, R>,
 ) =>
-	unstable_defineLoader(async parameters => {
+	unstable_defineLoader(async (parameters: LoaderFunctionArgs) => {
 		const program = effect.pipe(Effect.provide(makeRequestContext(parameters)), Effect.scoped);
 
 		return runtime.runPromise(program);
-	}) as (arguments_: LoaderFunctionArgs) => Promise<A>;
+	});
 
 export const defineEffectAction = <A extends Serializable, E, R extends AppEnvironment | RequestEnvironment>(
 	effect: Effect.Effect<A, E, R>,
 ) =>
-	unstable_defineAction(async parameters => {
+	unstable_defineAction(async (parameters: ActionFunctionArgs) => {
 		const program = effect.pipe(Effect.provide(makeRequestContext(parameters)), Effect.scoped);
 
 		return runtime.runPromise(program);
-	}) as (arguments_: ActionFunctionArgs) => Promise<A>;
+	});
