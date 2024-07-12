@@ -10,6 +10,7 @@ interface TodoService {
 }
 
 export const TodoService = Context.GenericTag<TodoService>("@todofall/website#TodoService");
+
 const TodoServiceLive = Layer.succeed(
 	TodoService,
 	TodoService.of({
@@ -41,20 +42,30 @@ type Serializable =
 	| Exclude<ReturnType<Parameters<typeof unstable_defineLoader>[0]>, Promise<any> | Response | TypedDeferredData<any>>
 	| Promise<Serializable>;
 
-export const defineEffectLoader = <A extends Serializable, E, R extends AppEnvironment | RequestEnvironment>(
-	effect: Effect.Effect<A, E, R>,
+type UnwrapNestedPromise<Value> = Value extends Promise<infer AwaitedValue> ? AwaitedValue : Value;
+
+export const defineEffectLoader = <
+	Success extends Serializable,
+	Error,
+	Requirements extends AppEnvironment | RequestEnvironment,
+>(
+	effect: Effect.Effect<Success, Error, Requirements>,
 ) =>
 	unstable_defineLoader(async (parameters: LoaderFunctionArgs) => {
 		const program = effect.pipe(Effect.provide(makeRequestContext(parameters)), Effect.scoped);
 
-		return runtime.runPromise(program);
+		return runtime.runPromise(program) as UnwrapNestedPromise<Success>;
 	});
 
-export const defineEffectAction = <A extends Serializable, E, R extends AppEnvironment | RequestEnvironment>(
-	effect: Effect.Effect<A, E, R>,
+export const defineEffectAction = <
+	Success extends Serializable,
+	Error,
+	Requirements extends AppEnvironment | RequestEnvironment,
+>(
+	effect: Effect.Effect<Success, Error, Requirements>,
 ) =>
 	unstable_defineAction(async (parameters: ActionFunctionArgs) => {
 		const program = effect.pipe(Effect.provide(makeRequestContext(parameters)), Effect.scoped);
 
-		return runtime.runPromise(program);
+		return runtime.runPromise(program) as UnwrapNestedPromise<Success>;
 	});
