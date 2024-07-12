@@ -26,10 +26,10 @@ const AppLayer = Layer.mergeAll(TodoServiceLive, Logger.pretty);
 
 const runtime = ManagedRuntime.make(AppLayer);
 
-export const ServerRequest = Context.GenericTag<Request>("@todofall/website#ServerRequest");
+export const RemixRequest = Context.GenericTag<Request>("@todofall/website#RemixRequest");
 
 const makeRequestContext = ({ request }: ActionFunctionArgs | LoaderFunctionArgs) => {
-	const layer = Context.empty().pipe(Context.add(ServerRequest, request), Layer.succeedContext);
+	const layer = Context.empty().pipe(Context.add(RemixRequest, request), Layer.succeedContext);
 
 	return layer;
 };
