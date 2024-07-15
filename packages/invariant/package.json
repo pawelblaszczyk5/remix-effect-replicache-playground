@@ -19,6 +19,6 @@
 	"devDependencies": {
 		"@todofall/eslint-config": "workspace:*",
 		"@todofall/typescript-config": "workspace:*",
-		"typescript": "^5.5.3"
+		"typescript": "catalog:"
 	}
 }

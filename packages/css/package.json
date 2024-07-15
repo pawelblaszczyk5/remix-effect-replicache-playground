@@ -21,12 +21,12 @@
 	},
 	"dependencies": {
 		"@css-hooks/core": "~2.0.4",
-		"react": "19.0.0-rc-9c6806964f-20240703"
+		"react": "catalog:"
 	},
 	"devDependencies": {
 		"@todofall/eslint-config": "workspace:*",
 		"@todofall/typescript-config": "workspace:*",
-		"@types/react": "npm:types-react@19.0.0-rc.1",
-		"typescript": "^5.5.3"
+		"@types/react": "catalog:",
+		"typescript": "catalog:"
 	}
 }
