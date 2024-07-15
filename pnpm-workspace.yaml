@@ -1,13 +1,11 @@
 packages:
-  - "apps/*"
-  - "packages/*"
-  - "tooling/*"
-
+  - apps/*
+  - packages/*
+  - tooling/*
 catalog:
+  effect: ^3.5.3
   react: 19.0.0-rc-9c6806964f-20240703
   react-dom: 19.0.0-rc-9c6806964f-20240703
+  '@types/react': npm:types-react@19.0.0-rc.1
+  '@types/react-dom': npm:types-react-dom@19.0.0-rc.1
   typescript: ^5.5.3
-  effect: ^3.5.1
-
-  "@types/react": npm:types-react@19.0.0-rc.1
-  "@types/react-dom": npm:types-react-dom@19.0.0-rc.1
