@@ -37,7 +37,7 @@
 			"allowedVersions": {
 				"@types/react": "npm:types-react@19.0.0-rc.1",
 				"@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
-				"eslint": "9.6.0",
+				"eslint": "9.7.0",
 				"react": "19.0.0-rc-9c6806964f-20240703",
 				"react-dom": "19.0.0-rc-9c6806964f-20240703"
 			}
