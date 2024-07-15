@@ -92,16 +92,3 @@ jobs:
 
       - name: Run
         run: pnpm package-json-sorter
-
-  syncpack:
-    name: ♻️ Syncpack
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
-
-      - name: Setup
-        uses: ./.github/composite-actions/setup
-
-      - name: Run
-        run: pnpm syncpack

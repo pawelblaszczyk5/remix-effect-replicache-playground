@@ -20,7 +20,7 @@
 		"typecheck": "tsc"
 	},
 	"dependencies": {
-		"@css-hooks/core": "~2.0.4",
+		"@css-hooks/core": "^2.0.4",
 		"react": "catalog:"
 	},
 	"devDependencies": {
