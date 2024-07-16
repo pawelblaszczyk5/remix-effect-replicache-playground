@@ -42,6 +42,9 @@
 				"react-dom": "19.0.0-rc-8b08e99e-20240713"
 			}
 		},
+		"allowedDeprecatedVersions": {
+			"@babel/plugin-proposal-private-methods": "7.18.6"
+		},
 		"patchedDependencies": {
 			"eslint-plugin-import-x@3.0.1": "patches/eslint-plugin-import-x@3.0.1.patch"
 		}

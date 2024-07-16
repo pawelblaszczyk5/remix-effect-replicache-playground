@@ -2,8 +2,9 @@ packages:
   - apps/*
   - packages/*
   - tooling/*
+
 catalog:
-  effect: ^3.5.3
+  effect: ^3.5.4
   react: 19.0.0-rc-8b08e99e-20240713
   react-dom: 19.0.0-rc-8b08e99e-20240713
   "@types/react": npm:types-react@19.0.0-rc.1
