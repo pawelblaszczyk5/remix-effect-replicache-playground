@@ -20,8 +20,8 @@
 		"typecheck": "tsc"
 	},
 	"dependencies": {
-		"@todofall/example-service": "workspace:*",
 		"@remix-run/node": "catalog:",
+		"@todofall/example-service": "workspace:*",
 		"effect": "catalog:"
 	},
 	"devDependencies": {
