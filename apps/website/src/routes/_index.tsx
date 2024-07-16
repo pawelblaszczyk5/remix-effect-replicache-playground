@@ -1,42 +1,27 @@
 import { useLoaderData } from "@remix-run/react";
-import { Suspense, use } from "react";
+import { Effect } from "effect";
 
 import { css } from "@todofall/css";
+import { defineEffectLoader } from "@todofall/effect-runtime";
+import { ExampleService } from "@todofall/example-service";
 
-import { defineLoader } from "#src/lib/remix.server.js";
+export const loader = defineEffectLoader(
+	Effect.gen(function* () {
+		const exampleService = yield* ExampleService;
 
-export const loader = defineLoader(async () => {
-	const date = new Promise<Date>(resolve => {
-		setTimeout(() => {
-			resolve(new Date());
-		}, 3_000);
-	});
-
-	return { date };
-});
-
-const DatePromiseRenderer = ({ datePromise }: Readonly<{ datePromise: Promise<Date> }>) => {
-	const date = use(datePromise);
-
-	return (
-		<>
-			<p>{date.toISOString()}</p>
-		</>
-	);
-};
+		return yield* exampleService.greet();
+	}),
+);
 
 const IndexAppRoute = () => {
-	const { date } = useLoaderData<typeof loader>();
+	const greeting = useLoaderData<typeof loader>();
 
 	return (
 		<>
-			<title>Hello world</title>
+			<title>Example home page</title>
 			<meta content="Welcome to example!" name="description" />
 			<div>
-				<h1 style={css({ color: "blue", on: $ => [$("hover", { color: "red" })] })}>Hello world</h1>
-				<Suspense fallback={<p>Loading...</p>}>
-					<DatePromiseRenderer datePromise={date} />
-				</Suspense>
+				<h1 style={css({ color: "blue", on: $ => [$("hover", { color: "red" })] })}>{greeting}</h1>
 			</div>
 		</>
 	);

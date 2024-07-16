@@ -7,6 +7,11 @@ catalog:
   effect: ^3.5.4
   react: 19.0.0-rc-8b08e99e-20240713
   react-dom: 19.0.0-rc-8b08e99e-20240713
+  "@types/node": ^20.14.10
   "@types/react": npm:types-react@19.0.0-rc.1
   "@types/react-dom": npm:types-react-dom@19.0.0-rc.1
   typescript: ^5.5.3
+  "@remix-run/node": ^2.10.3
+  "@remix-run/serve": ^2.10.3
+  "@remix-run/react": ^2.10.3
+  "@remix-run/dev": ^2.10.3

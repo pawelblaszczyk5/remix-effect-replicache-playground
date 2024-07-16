@@ -4,30 +4,13 @@ import type { Scope } from "effect";
 import { unstable_defineAction, unstable_defineLoader } from "@remix-run/node";
 import { Context, Effect, Layer, Logger, ManagedRuntime } from "effect";
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-definitions -- better readability
-interface TodoService {
-	getTodo: () => Promise<string>;
-}
+import { ExampleServiceLive } from "@todofall/example-service";
 
-export const TodoService = Context.GenericTag<TodoService>("@todofall/website#TodoService");
-
-const TodoServiceLive = Layer.succeed(
-	TodoService,
-	TodoService.of({
-		getTodo: async () =>
-			new Promise(resolve => {
-				setTimeout(() => {
-					resolve(new Date().toISOString());
-				}, 1_000);
-			}),
-	}),
-);
-
-const AppLayer = Layer.mergeAll(TodoServiceLive, Logger.pretty);
+const AppLayer = Layer.mergeAll(Logger.pretty, ExampleServiceLive);
 
 const runtime = ManagedRuntime.make(AppLayer);
 
-export const RemixRequest = Context.GenericTag<Request>("@todofall/website#RemixRequest");
+export const RemixRequest = Context.GenericTag<Request>("@todofall/effect-runtime#RemixRequest");
 
 const makeRequestContext = ({ request }: ActionFunctionArgs | LoaderFunctionArgs) => {
 	const layer = Context.empty().pipe(Context.add(RemixRequest, request), Layer.succeedContext);
@@ -38,17 +21,15 @@ const makeRequestContext = ({ request }: ActionFunctionArgs | LoaderFunctionArgs
 type AppEnvironment = Layer.Layer.Success<typeof AppLayer>;
 type RequestEnvironment = Layer.Layer.Success<ReturnType<typeof makeRequestContext>> | Scope.Scope;
 
+type Environment = AppEnvironment | RequestEnvironment;
+
 type Serializable =
 	| Exclude<ReturnType<Parameters<typeof unstable_defineLoader>[0]>, Promise<any> | Response | TypedDeferredData<any>>
 	| Promise<Serializable>;
 
 type UnwrapNestedPromise<Value> = Value extends Promise<infer AwaitedValue> ? AwaitedValue : Value;
 
-export const defineEffectLoader = <
-	Success extends Serializable,
-	Error,
-	Requirements extends AppEnvironment | RequestEnvironment,
->(
+export const defineEffectLoader = <Success extends Serializable, Error, Requirements extends Environment>(
 	effect: Effect.Effect<Success, Error, Requirements>,
 ) =>
 	unstable_defineLoader(async (parameters: LoaderFunctionArgs) => {
@@ -57,11 +38,7 @@ export const defineEffectLoader = <
 		return runtime.runPromise(program) as UnwrapNestedPromise<Success>;
 	});
 
-export const defineEffectAction = <
-	Success extends Serializable,
-	Error,
-	Requirements extends AppEnvironment | RequestEnvironment,
->(
+export const defineEffectAction = <Success extends Serializable, Error, Requirements extends Environment>(
 	effect: Effect.Effect<Success, Error, Requirements>,
 ) =>
 	unstable_defineAction(async (parameters: ActionFunctionArgs) => {

@@ -6,6 +6,21 @@ settings:
 
 catalogs:
   default:
+    '@remix-run/dev':
+      specifier: ^2.10.3
+      version: 2.10.3
+    '@remix-run/node':
+      specifier: ^2.10.3
+      version: 2.10.3
+    '@remix-run/react':
+      specifier: ^2.10.3
+      version: 2.10.3
+    '@remix-run/serve':
+      specifier: ^2.10.3
+      version: 2.10.3
+    '@types/node':
+      specifier: ^20.14.10
+      version: 20.14.10
     '@types/react':
       specifier: npm:types-react@19.0.0-rc.1
       version: 19.0.0-rc.1
@@ -56,13 +71,13 @@ importers:
   apps/website:
     dependencies:
       '@remix-run/node':
-        specifier: ^2.10.3
+        specifier: 'catalog:'
         version: 2.10.3(typescript@5.5.3)
       '@remix-run/react':
-        specifier: ^2.10.3
+        specifier: 'catalog:'
         version: 2.10.3(react-dom@19.0.0-rc-8b08e99e-20240713(react@19.0.0-rc-8b08e99e-20240713))(react@19.0.0-rc-8b08e99e-20240713)(typescript@5.5.3)
       '@remix-run/serve':
-        specifier: ^2.10.3
+        specifier: 'catalog:'
         version: 2.10.3(typescript@5.5.3)
       '@todofall/css':
         specifier: workspace:*
@@ -70,6 +85,12 @@ importers:
       '@todofall/css-reset':
         specifier: workspace:*
         version: link:../../packages/css-reset
+      '@todofall/effect-runtime':
+        specifier: workspace:*
+        version: link:../../packages/effect-runtime
+      '@todofall/example-service':
+        specifier: workspace:*
+        version: link:../../packages/example-service
       effect:
         specifier: 'catalog:'
         version: 3.5.4
@@ -87,7 +108,7 @@ importers:
         specifier: ^7.24.7
         version: 7.24.7(@babel/core@7.24.9)
       '@remix-run/dev':
-        specifier: ^2.10.3
+        specifier: 'catalog:'
         version: 2.10.3(@remix-run/react@2.10.3(react-dom@19.0.0-rc-8b08e99e-20240713(react@19.0.0-rc-8b08e99e-20240713))(react@19.0.0-rc-8b08e99e-20240713)(typescript@5.5.3))(@remix-run/serve@2.10.3(typescript@5.5.3))(@types/node@20.14.10)(typescript@5.5.3)(vite@5.3.4(@types/node@20.14.10))
       '@todofall/eslint-config':
         specifier: workspace:*
@@ -96,7 +117,7 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/typescript-config
       '@types/node':
-        specifier: ^20.14.10
+        specifier: 'catalog:'
         version: 20.14.10
       '@types/react':
         specifier: 'catalog:'
@@ -140,6 +161,47 @@ importers:
         version: 5.5.3
 
   packages/css-reset: {}
+
+  packages/effect-runtime:
+    dependencies:
+      '@remix-run/node':
+        specifier: 'catalog:'
+        version: 2.10.3(typescript@5.5.3)
+      '@todofall/example-service':
+        specifier: workspace:*
+        version: link:../example-service
+      effect:
+        specifier: 'catalog:'
+        version: 3.5.4
+    devDependencies:
+      '@todofall/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@todofall/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      '@types/node':
+        specifier: 'catalog:'
+        version: 20.14.10
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.3
+
+  packages/example-service:
+    dependencies:
+      effect:
+        specifier: 'catalog:'
+        version: 3.5.4
+    devDependencies:
+      '@todofall/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@todofall/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.3
 
   packages/invariant:
     devDependencies:
