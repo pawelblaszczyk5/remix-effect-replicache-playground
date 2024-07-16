@@ -19,9 +19,9 @@
 		"typecheck": "tsc -b"
 	},
 	"dependencies": {
-		"@remix-run/node": "^2.10.2",
-		"@remix-run/react": "^2.10.2",
-		"@remix-run/serve": "^2.10.2",
+		"@remix-run/node": "^2.10.3",
+		"@remix-run/react": "^2.10.3",
+		"@remix-run/serve": "^2.10.3",
 		"@todofall/css": "workspace:*",
 		"@todofall/css-reset": "workspace:*",
 		"effect": "catalog:",
@@ -31,7 +31,7 @@
 	},
 	"devDependencies": {
 		"@babel/preset-typescript": "^7.24.7",
-		"@remix-run/dev": "^2.10.2",
+		"@remix-run/dev": "^2.10.3",
 		"@todofall/eslint-config": "workspace:*",
 		"@todofall/typescript-config": "workspace:*",
 		"@types/node": "^20.14.10",
@@ -39,7 +39,7 @@
 		"@types/react-dom": "catalog:",
 		"babel-plugin-react-compiler": "0.0.0-experimental-696af53-20240625",
 		"typescript": "catalog:",
-		"vite": "^5.3.3",
+		"vite": "^5.3.4",
 		"vite-plugin-babel": "^1.2.0"
 	}
 }
