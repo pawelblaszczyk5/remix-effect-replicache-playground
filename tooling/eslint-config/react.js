@@ -4,13 +4,14 @@ import { fixupConfigRules } from "@eslint/compat";
 import reactRefresh from "eslint-plugin-react-refresh";
 import reactCompiler from "eslint-plugin-react-compiler";
 import jsxA11y from "eslint-plugin-jsx-a11y";
+import react from "eslint-plugin-react";
 
 const compat = new FlatCompat({
 	baseDirectory: import.meta.dirname,
 });
 
 export default tseslint.config(
-	...fixupConfigRules(compat.extends("plugin:react/recommended")),
+	react.configs.flat.recommended,
 	{
 		name: "react overrides",
 		rules: {
