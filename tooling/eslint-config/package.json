@@ -40,13 +40,13 @@
 		"eslint-plugin-n": "^17.9.0",
 		"eslint-plugin-perfectionist": "^2.11.0",
 		"eslint-plugin-prefer-arrow-functions": "^3.3.2",
-		"eslint-plugin-promise": "^6.5.1",
+		"eslint-plugin-promise": "^6.6.0",
 		"eslint-plugin-react": "^7.35.0",
 		"eslint-plugin-react-compiler": "0.0.0-experimental-51a85ea-20240601",
 		"eslint-plugin-react-hooks": "^4.6.2",
 		"eslint-plugin-react-refresh": "^0.4.9",
 		"eslint-plugin-regexp": "^2.6.0",
 		"eslint-plugin-unicorn": "^54.0.0",
-		"typescript-eslint": "8.0.0-alpha.48"
+		"typescript-eslint": "8.0.0-alpha.51"
 	}
 }

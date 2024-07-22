@@ -19,28 +19,30 @@
 		"update-dependencies": "taze major --write --interactive --recursive --includeLocked --force"
 	},
 	"devDependencies": {
-		"cspell": "^8.11.0",
+		"cspell": "^8.12.1",
 		"prettier": "^3.3.3",
 		"sort-package-json": "^2.10.0",
 		"taze": "^0.16.1",
 		"turbo": "2.0.9",
 		"typescript": "catalog:"
 	},
-	"packageManager": "pnpm@9.5.0",
+	"packageManager": "pnpm@9.6.0",
 	"engines": {
-		"node": "22.4.0",
-		"pnpm": "9.5.0"
+		"node": "22.5.1",
+		"pnpm": "9.6.0"
 	},
 	"engineStrict": true,
 	"pnpm": {
 		"peerDependencyRules": {
 			"allowedVersions": {
-				"@types/react": "npm:types-react@19.0.0-rc.1",
-				"@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
-				"eslint": "9.7.0",
-				"react": "19.0.0-rc-8b08e99e-20240713",
-				"react-dom": "19.0.0-rc-8b08e99e-20240713"
+				"eslint": "9.7.0"
 			}
+		},
+		"overrides": {
+			"@types/react": "catalog:",
+			"@types/react-dom": "catalog:",
+			"react": "catalog:",
+			"react-dom": "catalog:"
 		},
 		"allowedDeprecatedVersions": {
 			"@babel/plugin-proposal-private-methods": "7.18.6"
