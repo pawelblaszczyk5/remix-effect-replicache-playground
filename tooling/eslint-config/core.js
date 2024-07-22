@@ -8,7 +8,7 @@ import fp from "eslint-plugin-fp";
 import importX from "eslint-plugin-import-x";
 import gitignore from "eslint-config-flat-gitignore";
 import unicorn from "eslint-plugin-unicorn";
-import perfectionistNatural from "eslint-plugin-perfectionist/configs/recommended-natural";
+import perfectionist from "eslint-plugin-perfectionist";
 import regexpPlugin from "eslint-plugin-regexp";
 import { FlatCompat } from "@eslint/eslintrc";
 
@@ -363,7 +363,7 @@ export default tseslint.config(
 			"unicorn/no-array-callback-reference": "off",
 		},
 	},
-	perfectionistNatural,
+	perfectionist.configs["recommended-natural"],
 	{
 		name: "perfectionist overrides",
 		rules: {
@@ -384,10 +384,10 @@ export default tseslint.config(
 						"object",
 						"unknown",
 					],
-					"internal-pattern": ["\\#**/**"],
+					internalPattern: ["\\#**/**"],
 					order: "asc",
 					type: "natural",
-					"custom-groups": {
+					customGroups: {
 						value: {
 							monorepo: ["@todofall/**"],
 						},
