@@ -1,4 +1,4 @@
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { Effect } from "effect";
 
 import { css } from "@todofall/css";
@@ -22,6 +22,7 @@ const IndexAppRoute = () => {
 			<meta content="Welcome to example!" name="description" />
 			<div>
 				<h1 style={css({ color: "blue", on: $ => [$("hover", { color: "red" })] })}>{greeting}</h1>
+				<Link prefetch="render" to={{ pathname: "/app" }}>Go to app</Link>
 			</div>
 		</>
 	);
