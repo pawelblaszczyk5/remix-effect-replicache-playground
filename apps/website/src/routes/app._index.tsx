@@ -3,7 +3,7 @@ import { useReplicacheData, useReplicacheMutation } from "#src/lib/replicache.cl
 const getRandomInt = (max: number) => Math.floor(Math.random() * max);
 
 const AppRoute = () => {
-	const data = useReplicacheData(async tx => tx.get<number>("value"));
+	const data = useReplicacheData(async (tx) => tx.get<number>("value"));
 	const { clearValue, updateValue } = useReplicacheMutation();
 
 	return (

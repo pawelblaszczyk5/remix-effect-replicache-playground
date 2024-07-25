@@ -60,7 +60,7 @@ export const useReplicacheData = <T,>(readFunction: (tx: ReadTransaction) => Pro
 
 	useEffect(() => {
 		const unsubscribe = replicacheClient.subscribe(readFunction, {
-			onData: data => {
+			onData: (data) => {
 				setData(data);
 			},
 		});

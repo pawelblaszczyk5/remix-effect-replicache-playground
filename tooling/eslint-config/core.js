@@ -16,7 +16,7 @@ const compat = new FlatCompat({
 	baseDirectory: import.meta.dirname,
 });
 
-const banExtension = extension => {
+const banExtension = (extension) => {
 	const message = `Unexpected use of file extension (.${extension})`;
 	const literalAttributeMatcher = `Literal[value=/\\.${extension}$/]`;
 	return [
