@@ -101,6 +101,7 @@ export default tseslint.config(
 				},
 				...banExtension("ts"),
 				...banExtension("tsx"),
+				...banExtension("jsx"),
 			],
 			"no-return-assign": "error",
 			"no-self-compare": "error",
