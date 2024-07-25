@@ -14,8 +14,8 @@ const handleRequest = async (
 	responseStatusCode: number,
 	responseHeaders: Headers,
 	routerContext: EntryContext,
-) =>
-	new Promise((resolve, reject) => {
+) => {
+	return new Promise((resolve, reject) => {
 		let shellRendered = false;
 		let finalResponseStatusCode = responseStatusCode;
 		const userAgent = request.headers.get("user-agent");
@@ -59,5 +59,6 @@ const handleRequest = async (
 
 		setTimeout(abort, ABORT_DELAY);
 	});
+};
 
 export default handleRequest;

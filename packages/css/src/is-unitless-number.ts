@@ -72,4 +72,6 @@ const unitlessNumbers = new Set([
 	"WebkitLineClamp",
 ]);
 
-export const isUnitlessNumber = (name: string) => unitlessNumbers.has(name);
+export const isUnitlessNumber = (name: string) => {
+	return unitlessNumbers.has(name);
+};

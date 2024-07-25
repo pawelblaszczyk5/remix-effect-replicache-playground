@@ -70,7 +70,7 @@ export default tseslint.config(
 	{
 		name: "builtin overrides",
 		rules: {
-			"arrow-body-style": ["error", "as-needed"],
+			"arrow-body-style": ["error", "always"],
 			curly: ["error", "multi", "consistent"],
 			"default-case-last": "error",
 			eqeqeq: "error",

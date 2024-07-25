@@ -52,7 +52,9 @@ export const useReplicacheData = <T,>(readFunction: (tx: ReadTransaction) => Pro
 	if (!replicacheClient) throw new Error("Lorem Ipsum");
 
 	// eslint-disable-next-line react/hook-use-state -- I want this
-	const [initialDataPromise] = useState(async () => replicacheClient.query(readFunction));
+	const [initialDataPromise] = useState(async () => {
+		return replicacheClient.query(readFunction);
+	});
 
 	const initialData = use(initialDataPromise);
 

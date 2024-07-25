@@ -21,7 +21,16 @@ const IndexAppRoute = () => {
 			<title>Example home page</title>
 			<meta content="Welcome to example!" name="description" />
 			<div>
-				<h1 style={css({ color: "blue", on: ($) => [$("hover", { color: "red" })] })}>{greeting}</h1>
+				<h1
+					style={css({
+						color: "blue",
+						on: ($) => {
+							return [$("hover", { color: "red" })];
+						},
+					})}
+				>
+					{greeting}
+				</h1>
 				<Link prefetch="render" to={{ pathname: "/app" }}>
 					Go to app
 				</Link>

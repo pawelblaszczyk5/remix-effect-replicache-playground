@@ -31,18 +31,20 @@ type UnwrapNestedPromise<Value> = Value extends Promise<infer AwaitedValue> ? Aw
 
 export const defineEffectLoader = <Success extends Serializable, Error, Requirements extends Environment>(
 	effect: Effect.Effect<Success, Error, Requirements>,
-) =>
-	unstable_defineLoader(async (parameters: LoaderFunctionArgs) => {
+) => {
+	return unstable_defineLoader(async (parameters: LoaderFunctionArgs) => {
 		const program = effect.pipe(Effect.provide(makeRequestContext(parameters)), Effect.scoped);
 
 		return runtime.runPromise(program) as UnwrapNestedPromise<Success>;
 	});
+};
 
 export const defineEffectAction = <Success extends Serializable, Error, Requirements extends Environment>(
 	effect: Effect.Effect<Success, Error, Requirements>,
-) =>
-	unstable_defineAction(async (parameters: ActionFunctionArgs) => {
+) => {
+	return unstable_defineAction(async (parameters: ActionFunctionArgs) => {
 		const program = effect.pipe(Effect.provide(makeRequestContext(parameters)), Effect.scoped);
 
 		return runtime.runPromise(program) as UnwrapNestedPromise<Success>;
 	});
+};

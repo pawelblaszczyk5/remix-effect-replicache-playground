@@ -1,15 +1,18 @@
 import { Context, Effect, Layer } from "effect";
 
-const makeExampleServiceLive = () => ({
-	greet: (name?: string) =>
-		Effect.gen(function* () {
-			if (name) return `Hello ${name}!`;
+const makeExampleServiceLive = () => {
+	return {
+		greet: (name?: string) => {
+			return Effect.gen(function* () {
+				if (name) return `Hello ${name}!`;
 
-			yield* Effect.log("Anonymous user visited!");
+				yield* Effect.log("Anonymous user visited!");
 
-			return "Hello stranger!";
-		}),
-});
+				return "Hello stranger!";
+			});
+		},
+	};
+};
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions -- prevent intellisense expanding
 export interface ExampleService extends ReturnType<typeof makeExampleServiceLive> {}
