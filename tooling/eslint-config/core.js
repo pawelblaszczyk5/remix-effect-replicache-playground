@@ -16,7 +16,7 @@ const compat = new FlatCompat({
 	baseDirectory: import.meta.dirname,
 });
 
-const banExtension = (extension) => {
+const banExtension = extension => {
 	const message = `Unexpected use of file extension (.${extension})`;
 	const literalAttributeMatcher = `Literal[value=/\\.${extension}$/]`;
 	return [
@@ -76,8 +76,8 @@ export default tseslint.config(
 			eqeqeq: "error",
 			"linebreak-style": ["error", "unix"],
 			"logical-assignment-operators": ["error", "always", { enforceForIfStatements: true }],
-			"no-alert": "warn",
-			"no-console": "warn",
+			"no-alert": "error",
+			"no-console": "error",
 			"no-div-regex": "error",
 			"no-else-return": ["error", { allowElseIf: false }],
 			"no-eval": "error",
@@ -284,7 +284,7 @@ export default tseslint.config(
 			"import-x/first": "error",
 			"import-x/newline-after-import": "error",
 			"import-x/no-cycle": ["error"],
-			"import-x/no-deprecated": "warn",
+			"import-x/no-deprecated": "error",
 			"import-x/no-duplicates": "error",
 			"import-x/no-extraneous-dependencies": "error",
 			"import-x/no-mutable-exports": "error",
