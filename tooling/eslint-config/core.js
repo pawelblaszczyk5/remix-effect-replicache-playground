@@ -354,6 +354,7 @@ export default tseslint.config(
 						props: true,
 						dir: true,
 						rel: true,
+						params: true,
 					},
 					checkProperties: true,
 					checkShorthandProperties: true,
