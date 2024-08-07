@@ -74,3 +74,5 @@ export const defineEffectAction = <
 		return runtime.runPromise(program) as UnwrapNestedPromise<Success>;
 	});
 };
+
+export { unstable_data as data } from "@remix-run/node";
