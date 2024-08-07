@@ -1,10 +1,10 @@
 {
-	"name": "@todofall/website",
+	"name": "@repo/website",
 	"version": "0.0.0",
 	"private": true,
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/pawelblaszczyk5/todofall",
+		"url": "https://github.com/pawelblaszczyk5/remix-effect-replicache-playground",
 		"directory": "apps/website"
 	},
 	"type": "module",
@@ -22,10 +22,10 @@
 		"@remix-run/node": "catalog:",
 		"@remix-run/react": "catalog:",
 		"@remix-run/serve": "catalog:",
-		"@todofall/css": "workspace:*",
-		"@todofall/css-reset": "workspace:*",
-		"@todofall/effect-runtime": "workspace:*",
-		"@todofall/example-service": "workspace:*",
+		"@repo/css": "workspace:*",
+		"@repo/css-reset": "workspace:*",
+		"@repo/effect-runtime": "workspace:*",
+		"@repo/example-service": "workspace:*",
 		"effect": "catalog:",
 		"isbot": "^5.1.13",
 		"react": "catalog:",
@@ -36,8 +36,8 @@
 	"devDependencies": {
 		"@babel/preset-typescript": "^7.24.7",
 		"@remix-run/dev": "catalog:",
-		"@todofall/eslint-config": "workspace:*",
-		"@todofall/typescript-config": "workspace:*",
+		"@repo/eslint-config": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
 		"@types/node": "catalog:",
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",

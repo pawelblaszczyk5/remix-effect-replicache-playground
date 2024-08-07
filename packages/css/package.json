@@ -1,11 +1,11 @@
 {
-	"name": "@todofall/css",
+	"name": "@repo/css",
 	"version": "0.0.1",
 	"private": true,
 	"description": "Shared css utility from CSS Hooks",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/pawelblaszczyk5/todofall",
+		"url": "https://github.com/pawelblaszczyk5/remix-effect-replicache-playground",
 		"directory": "packages/css"
 	},
 	"type": "module",
@@ -24,8 +24,8 @@
 		"react": "catalog:"
 	},
 	"devDependencies": {
-		"@todofall/eslint-config": "workspace:*",
-		"@todofall/typescript-config": "workspace:*",
+		"@repo/eslint-config": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
 		"@types/react": "catalog:",
 		"typescript": "catalog:"
 	}

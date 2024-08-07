@@ -1,5 +1,5 @@
-import core from "@todofall/eslint-config/core";
-import react from "@todofall/eslint-config/react";
+import core from "@repo/eslint-config/core";
+import react from "@repo/eslint-config/react";
 
 export default [
 	{

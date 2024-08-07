@@ -1,9 +1,9 @@
 import { Link, useLoaderData } from "@remix-run/react";
 import { Effect } from "effect";
 
-import { css } from "@todofall/css";
-import { defineEffectLoader } from "@todofall/effect-runtime";
-import { ExampleService } from "@todofall/example-service";
+import { css } from "@repo/css";
+import { defineEffectLoader } from "@repo/effect-runtime";
+import { ExampleService } from "@repo/example-service";
 
 export const loader = defineEffectLoader(
 	Effect.gen(function* () {

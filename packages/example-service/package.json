@@ -1,11 +1,11 @@
 {
-	"name": "@todofall/example-service",
+	"name": "@repo/example-service",
 	"version": "0.0.1",
 	"private": true,
 	"description": "Example Effect service",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/pawelblaszczyk5/todofall",
+		"url": "https://github.com/pawelblaszczyk5/remix-effect-replicache-playground",
 		"directory": "packages/example-service"
 	},
 	"type": "module",
@@ -23,8 +23,8 @@
 		"effect": "catalog:"
 	},
 	"devDependencies": {
-		"@todofall/eslint-config": "workspace:*",
-		"@todofall/typescript-config": "workspace:*",
+		"@repo/eslint-config": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
 		"typescript": "catalog:"
 	}
 }

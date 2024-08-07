@@ -1,1 +1,1 @@
-# @todofall/example-service
+# @repo/example-service

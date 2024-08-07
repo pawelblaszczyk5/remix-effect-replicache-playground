@@ -4,13 +4,13 @@ import type { Scope } from "effect";
 import { unstable_defineAction, unstable_defineLoader } from "@remix-run/node";
 import { Context, Effect, Layer, Logger, ManagedRuntime } from "effect";
 
-import { ExampleServiceLive } from "@todofall/example-service";
+import { ExampleServiceLive } from "@repo/example-service";
 
 const AppLayer = Layer.mergeAll(Logger.pretty, ExampleServiceLive);
 
 const runtime = ManagedRuntime.make(AppLayer);
 
-export const RemixRequest = Context.GenericTag<Request>("@todofall/effect-runtime#RemixRequest");
+export const RemixRequest = Context.GenericTag<Request>("@repo/effect-runtime#RemixRequest");
 
 const makeRequestContext = ({ request }: ActionFunctionArgs | LoaderFunctionArgs) => {
 	const layer = Context.empty().pipe(Context.add(RemixRequest, request), Layer.succeedContext);

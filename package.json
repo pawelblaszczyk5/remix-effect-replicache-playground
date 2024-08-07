@@ -1,9 +1,12 @@
 {
-	"name": "@todofall/root",
+	"name": "@repo/root",
 	"version": "0.0.1",
 	"private": true,
 	"description": "Root workspace",
-	"repository": "https://github.com/pawelblaszczyk5/todofall",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pawelblaszczyk5/remix-effect-replicache-playground"
+	},
 	"type": "module",
 	"scripts": {
 		"build": "turbo run build",

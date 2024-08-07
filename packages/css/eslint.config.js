@@ -1,4 +1,4 @@
-import core from "@todofall/eslint-config/core";
+import core from "@repo/eslint-config/core";
 
 export default [
 	{

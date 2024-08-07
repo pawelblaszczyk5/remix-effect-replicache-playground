@@ -2,8 +2,8 @@ import type { LinksFunction } from "@remix-run/node";
 
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 
-import { styleSheet } from "@todofall/css";
-import cssResetStylesheet from "@todofall/css-reset?url";
+import { styleSheet } from "@repo/css";
+import cssResetStylesheet from "@repo/css-reset?url";
 
 export const links = (() => {
 	return [

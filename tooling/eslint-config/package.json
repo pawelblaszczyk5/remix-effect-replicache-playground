@@ -1,11 +1,11 @@
 {
-	"name": "@todofall/eslint-config",
+	"name": "@repo/eslint-config",
 	"version": "0.0.1",
 	"private": true,
 	"description": "Shared ESLint config",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/pawelblaszczyk5/todofall",
+		"url": "https://github.com/pawelblaszczyk5/remix-effect-replicache-playground",
 		"directory": "tooling/eslint-config"
 	},
 	"type": "module",

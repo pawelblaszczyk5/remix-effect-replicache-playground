@@ -1,11 +1,11 @@
 {
-	"name": "@todofall/effect-runtime",
+	"name": "@repo/effect-runtime",
 	"version": "0.0.1",
 	"private": true,
 	"description": "Custom runtime for effect with Remix",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/pawelblaszczyk5/todofall",
+		"url": "https://github.com/pawelblaszczyk5/remix-effect-replicache-playground",
 		"directory": "packages/effect-runtime"
 	},
 	"type": "module",
@@ -21,12 +21,12 @@
 	},
 	"dependencies": {
 		"@remix-run/node": "catalog:",
-		"@todofall/example-service": "workspace:*",
+		"@repo/example-service": "workspace:*",
 		"effect": "catalog:"
 	},
 	"devDependencies": {
-		"@todofall/eslint-config": "workspace:*",
-		"@todofall/typescript-config": "workspace:*",
+		"@repo/eslint-config": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
 		"@types/node": "catalog:",
 		"typescript": "catalog:"
 	}

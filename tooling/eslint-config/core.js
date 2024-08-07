@@ -391,10 +391,10 @@ export default tseslint.config(
 					type: "natural",
 					customGroups: {
 						value: {
-							monorepo: ["@todofall/**"],
+							monorepo: ["@repo/**"],
 						},
 						type: {
-							monorepo: ["@todofall/**"],
+							monorepo: ["@repo/**"],
 						},
 					},
 				},

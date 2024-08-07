@@ -1,1 +1,1 @@
-# @todofall/typescript-config
+# @repo/typescript-config

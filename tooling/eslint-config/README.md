@@ -1,1 +1,1 @@
-# @todofall/eslint-config
+# @repo/eslint-config

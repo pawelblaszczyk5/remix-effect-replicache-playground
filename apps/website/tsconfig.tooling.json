@@ -1,5 +1,5 @@
 {
-	"extends": "@todofall/typescript-config/no-build",
+	"extends": "@repo/typescript-config/no-build",
 	"compilerOptions": {
 		"lib": ["ESNext"],
 		"jsx": "preserve"
