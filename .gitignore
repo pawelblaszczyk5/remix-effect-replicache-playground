@@ -7,7 +7,7 @@ coverage/
 # artifacts
 .turbo/
 out/
-dist/
+build/
 
 # misc
 .DS_Store

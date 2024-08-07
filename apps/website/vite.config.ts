@@ -6,7 +6,6 @@ export default defineConfig({
 	plugins: [
 		remix({
 			appDirectory: "src",
-			buildDirectory: "dist",
 			future: {
 				unstable_lazyRouteDiscovery: true,
 				unstable_singleFetch: true,

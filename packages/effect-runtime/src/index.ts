@@ -1,4 +1,8 @@
-import type { ActionFunctionArgs, LoaderFunctionArgs, unstable_data } from "@remix-run/node";
+import type {
+	ActionFunctionArgs,
+	UNSAFE_DataWithResponseInit as DataWithResponseInit,
+	LoaderFunctionArgs,
+} from "@remix-run/node";
 import type { Scope } from "effect";
 
 import { unstable_defineAction, unstable_defineLoader } from "@remix-run/node";
@@ -43,7 +47,7 @@ type Serializable =
 	| undefined
 	| URL;
 
-type SerializableDataWithResponseInit = ReturnType<typeof unstable_data<Serializable>>;
+type SerializableDataWithResponseInit = DataWithResponseInit<Serializable>;
 
 type UnwrapNestedPromise<Value> = Value extends Promise<infer AwaitedValue> ? AwaitedValue : Value;
 

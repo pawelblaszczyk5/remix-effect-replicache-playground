@@ -14,7 +14,7 @@
 		},
 		"build": {
 			"dependsOn": ["^build"],
-			"outputs": ["dist/"]
+			"outputs": ["build/"]
 		},
 		"typecheck": {
 			"dependsOn": ["^transit"],

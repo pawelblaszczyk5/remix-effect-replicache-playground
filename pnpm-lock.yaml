@@ -35,6 +35,12 @@ overrides:
   react-dom: 19.0.0-rc-e948a5ac-20240807
 
 patchedDependencies:
+  '@remix-run/node':
+    hash: colqjjmnb7w3s2e6mnoislp3gq
+    path: patches/@remix-run__node.patch
+  '@remix-run/server-runtime':
+    hash: pbmznlg5zh3f7ivwhh6b7yy7sy
+    path: patches/@remix-run__server-runtime.patch
   eslint-plugin-import-x:
     hash: qettourpbwsgacy4pkbcu7sfea
     path: patches/eslint-plugin-import-x.patch
@@ -66,7 +72,7 @@ importers:
     dependencies:
       '@remix-run/node':
         specifier: 'catalog:'
-        version: 2.11.1(typescript@5.5.4)
+        version: 2.11.1(patch_hash=colqjjmnb7w3s2e6mnoislp3gq)(typescript@5.5.4)
       '@remix-run/react':
         specifier: 'catalog:'
         version: 2.11.1(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)
@@ -166,7 +172,7 @@ importers:
     dependencies:
       '@remix-run/node':
         specifier: 'catalog:'
-        version: 2.11.1(typescript@5.5.4)
+        version: 2.11.1(patch_hash=colqjjmnb7w3s2e6mnoislp3gq)(typescript@5.5.4)
       '@repo/example-service':
         specifier: workspace:*
         version: link:../example-service
@@ -5396,10 +5402,10 @@ snapshots:
       '@babel/types': 7.24.9
       '@mdx-js/mdx': 2.3.0
       '@npmcli/package-json': 4.0.1
-      '@remix-run/node': 2.11.1(typescript@5.5.4)
+      '@remix-run/node': 2.11.1(patch_hash=colqjjmnb7w3s2e6mnoislp3gq)(typescript@5.5.4)
       '@remix-run/react': 2.11.1(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)
       '@remix-run/router': 1.19.0
-      '@remix-run/server-runtime': 2.11.1(typescript@5.5.4)
+      '@remix-run/server-runtime': 2.11.1(patch_hash=pbmznlg5zh3f7ivwhh6b7yy7sy)(typescript@5.5.4)
       '@types/mdx': 2.0.13
       '@vanilla-extract/integration': 6.5.0(@types/node@22.1.0)
       arg: 5.0.2
@@ -5462,14 +5468,14 @@ snapshots:
 
   '@remix-run/express@2.11.1(express@4.19.2)(typescript@5.5.4)':
     dependencies:
-      '@remix-run/node': 2.11.1(typescript@5.5.4)
+      '@remix-run/node': 2.11.1(patch_hash=colqjjmnb7w3s2e6mnoislp3gq)(typescript@5.5.4)
       express: 4.19.2
     optionalDependencies:
       typescript: 5.5.4
 
-  '@remix-run/node@2.11.1(typescript@5.5.4)':
+  '@remix-run/node@2.11.1(patch_hash=colqjjmnb7w3s2e6mnoislp3gq)(typescript@5.5.4)':
     dependencies:
-      '@remix-run/server-runtime': 2.11.1(typescript@5.5.4)
+      '@remix-run/server-runtime': 2.11.1(patch_hash=pbmznlg5zh3f7ivwhh6b7yy7sy)(typescript@5.5.4)
       '@remix-run/web-fetch': 4.4.2
       '@web3-storage/multipart-parser': 1.0.0
       cookie-signature: 1.2.1
@@ -5482,7 +5488,7 @@ snapshots:
   '@remix-run/react@2.11.1(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)':
     dependencies:
       '@remix-run/router': 1.19.0
-      '@remix-run/server-runtime': 2.11.1(typescript@5.5.4)
+      '@remix-run/server-runtime': 2.11.1(patch_hash=pbmznlg5zh3f7ivwhh6b7yy7sy)(typescript@5.5.4)
       react: 19.0.0-rc-e948a5ac-20240807
       react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
       react-router: 6.26.0(react@19.0.0-rc-e948a5ac-20240807)
@@ -5496,7 +5502,7 @@ snapshots:
   '@remix-run/serve@2.11.1(typescript@5.5.4)':
     dependencies:
       '@remix-run/express': 2.11.1(express@4.19.2)(typescript@5.5.4)
-      '@remix-run/node': 2.11.1(typescript@5.5.4)
+      '@remix-run/node': 2.11.1(patch_hash=colqjjmnb7w3s2e6mnoislp3gq)(typescript@5.5.4)
       chokidar: 3.6.0
       compression: 1.7.4
       express: 4.19.2
@@ -5507,7 +5513,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@remix-run/server-runtime@2.11.1(typescript@5.5.4)':
+  '@remix-run/server-runtime@2.11.1(patch_hash=pbmznlg5zh3f7ivwhh6b7yy7sy)(typescript@5.5.4)':
     dependencies:
       '@remix-run/router': 1.19.0
       '@types/cookie': 0.6.0

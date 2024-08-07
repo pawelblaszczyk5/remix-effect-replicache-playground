@@ -1,0 +1,23 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index 6143b47e7005633b2e67ee428f12f1f9efc034d6..b8cfc5fb0fe68c746cfef61965f771cc3e591bd3 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -2,7 +2,7 @@ export { createCookieFactory, isCookie } from "./cookies";
+ export { composeUploadHandlers as unstable_composeUploadHandlers, parseMultipartFormData as unstable_parseMultipartFormData, } from "./formData";
+ export { defer, json, redirect, redirectDocument, replace } from "./responses";
+ export { SingleFetchRedirectSymbol as UNSAFE_SingleFetchRedirectSymbol, data as unstable_data, defineLoader as unstable_defineLoader, defineAction as unstable_defineAction, } from "./single-fetch";
+-export type { Loader as unstable_Loader, Action as unstable_Action, Serialize as unstable_Serialize, SingleFetchResult as UNSAFE_SingleFetchResult, SingleFetchResults as UNSAFE_SingleFetchResults, } from "./single-fetch";
++export type { Loader as unstable_Loader, Action as unstable_Action, Serialize as unstable_Serialize, SingleFetchResult as UNSAFE_SingleFetchResult, SingleFetchResults as UNSAFE_SingleFetchResults, DataWithResponseInit as UNSAFE_DataWithResponseInit } from "./single-fetch";
+ export { createRequestHandler } from "./server";
+ export { createSession, createSessionStorageFactory, isSession, } from "./sessions";
+ export { createCookieSessionStorageFactory } from "./sessions/cookieStorage";
+diff --git a/dist/single-fetch.d.ts b/dist/single-fetch.d.ts
+index e26752fc5c80d9160d1c200e3a2aff38ce4d23e9..1c4a2694fdca6fe771aeea17be60ff3444a526b4 100644
+--- a/dist/single-fetch.d.ts
++++ b/dist/single-fetch.d.ts
+@@ -50,4 +50,4 @@ export type Loader = (args: LoaderFunctionArgs) => MaybePromise<DataFunctionRetu
+ export declare let defineLoader: <T extends Loader>(loader: T) => T;
+ export type Action = (args: ActionFunctionArgs) => MaybePromise<DataFunctionReturnValue>;
+ export declare let defineAction: <T extends Action>(action: T) => T;
+-export {};
++export {DataWithResponseInit};
