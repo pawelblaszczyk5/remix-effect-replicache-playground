@@ -1,4 +1,4 @@
-import type { ActionFunctionArgs, LoaderFunctionArgs, TypedDeferredData } from "@remix-run/node";
+import type { ActionFunctionArgs, LoaderFunctionArgs, unstable_data } from "@remix-run/node";
 import type { Scope } from "effect";
 
 import { unstable_defineAction, unstable_defineLoader } from "@remix-run/node";
@@ -24,12 +24,34 @@ type RequestEnvironment = Layer.Layer.Success<ReturnType<typeof makeRequestConte
 type Environment = AppEnvironment | RequestEnvironment;
 
 type Serializable =
-	| Exclude<ReturnType<Parameters<typeof unstable_defineLoader>[0]>, Promise<any> | Response | TypedDeferredData<any>>
-	| Promise<Serializable>;
+	| {
+			[key: PropertyKey]: Serializable;
+	  }
+	| Array<Serializable>
+	| bigint
+	| boolean
+	| Date
+	| Error
+	| Map<Serializable, Serializable>
+	| null
+	| number
+	| Promise<Serializable>
+	| RegExp
+	| Set<Serializable>
+	| string
+	| symbol
+	| undefined
+	| URL;
+
+type SerializableDataWithResponseInit = ReturnType<typeof unstable_data<Serializable>>;
 
 type UnwrapNestedPromise<Value> = Value extends Promise<infer AwaitedValue> ? AwaitedValue : Value;
 
-export const defineEffectLoader = <Success extends Serializable, Error, Requirements extends Environment>(
+export const defineEffectLoader = <
+	Success extends Serializable | SerializableDataWithResponseInit,
+	Error,
+	Requirements extends Environment,
+>(
 	effect: Effect.Effect<Success, Error, Requirements>,
 ) => {
 	return unstable_defineLoader(async (parameters: LoaderFunctionArgs) => {
@@ -39,7 +61,11 @@ export const defineEffectLoader = <Success extends Serializable, Error, Requirem
 	});
 };
 
-export const defineEffectAction = <Success extends Serializable, Error, Requirements extends Environment>(
+export const defineEffectAction = <
+	Success extends Serializable | SerializableDataWithResponseInit,
+	Error,
+	Requirements extends Environment,
+>(
 	effect: Effect.Effect<Success, Error, Requirements>,
 ) => {
 	return unstable_defineAction(async (parameters: ActionFunctionArgs) => {

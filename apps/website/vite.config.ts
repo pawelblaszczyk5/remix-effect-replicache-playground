@@ -8,7 +8,7 @@ export default defineConfig({
 			appDirectory: "src",
 			buildDirectory: "dist",
 			future: {
-				unstable_fogOfWar: true,
+				unstable_lazyRouteDiscovery: true,
 				unstable_singleFetch: true,
 				v3_fetcherPersist: true,
 				v3_relativeSplatPath: true,
