@@ -1,8 +1,5 @@
-import type {
-	ActionFunctionArgs,
-	UNSAFE_DataWithResponseInit as DataWithResponseInit,
-	LoaderFunctionArgs,
-} from "@remix-run/node";
+import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
+import type { UNSAFE_DataWithResponseInit as DataWithResponseInit } from "@remix-run/router/";
 import type { Scope } from "effect";
 
 import { unstable_defineAction, unstable_defineLoader } from "@remix-run/node";
@@ -80,3 +77,5 @@ export const defineEffectAction = <
 };
 
 export { unstable_data as data } from "@remix-run/node";
+
+export { type UNSAFE_DataWithResponseInit as DataWithResponseInit } from "@remix-run/router/";
