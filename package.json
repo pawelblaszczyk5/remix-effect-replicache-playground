@@ -52,9 +52,9 @@
 			"react-dom": "catalog:"
 		},
 		"patchedDependencies": {
-			"eslint-plugin-import-x": "patches/eslint-plugin-import-x.patch",
+			"@remix-run/node": "patches/@remix-run__node.patch",
 			"@remix-run/server-runtime": "patches/@remix-run__server-runtime.patch",
-			"@remix-run/node": "patches/@remix-run__node.patch"
+			"eslint-plugin-import-x": "patches/eslint-plugin-import-x.patch"
 		}
 	}
 }

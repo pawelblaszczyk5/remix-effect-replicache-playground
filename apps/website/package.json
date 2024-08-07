@@ -14,9 +14,9 @@
 	"scripts": {
 		"build": "remix vite:build",
 		"dev": "remix vite:dev",
-		"preview": "remix-serve build/server/index.js",
 		"lint": "eslint",
 		"lint:fix": "eslint --fix",
+		"preview": "remix-serve build/server/index.js",
 		"typecheck": "tsc -b"
 	},
 	"dependencies": {
