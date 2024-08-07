@@ -12,6 +12,7 @@ import perfectionist from "eslint-plugin-perfectionist";
 import regexpPlugin from "eslint-plugin-regexp";
 import { FlatCompat } from "@eslint/eslintrc";
 import promise from "eslint-plugin-promise";
+import workspaces from "eslint-plugin-workspaces";
 
 const compat = new FlatCompat({
 	baseDirectory: import.meta.dirname,
@@ -413,4 +414,13 @@ export default tseslint.config(
 	regexpPlugin.configs["flat/recommended"],
 	promise.configs["flat/recommended"],
 	...fixupConfigRules(compat.extends("plugin:deprecation/recommended")),
+	{
+		name: "workspaces",
+		plugins: {
+			workspaces: fixupPluginRules(workspaces),
+		},
+		rules: {
+			"workspaces/no-relative-imports": "error",
+		},
+	},
 );

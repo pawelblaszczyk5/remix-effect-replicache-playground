@@ -292,6 +292,10 @@ importers:
       typescript-eslint:
         specifier: 8.0.1
         version: 8.0.1(eslint@9.8.0)(typescript@5.5.4)
+    devDependencies:
+      eslint-plugin-workspaces:
+        specifier: ^0.10.1
+        version: 0.10.1
 
   tooling/typescript-config: {}
 
@@ -2289,6 +2293,9 @@ packages:
     peerDependencies:
       eslint: '>=8.56.0'
 
+  eslint-plugin-workspaces@0.10.1:
+    resolution: {integrity: sha512-17p+ljQq2oYtN+cS6F52wRCV7xVh5fHiBOhQaYkSShRwRdiTvEkD6gvGysZjx08ckr9cozIFqI9SxdgTWDV9+g==}
+
   eslint-scope@8.0.2:
     resolution: {integrity: sha512-6E4xmrTw5wtxnLA5wYL3WDfhZ/1bUBGOXV0zQvVRDOtrR8D0p6W7fs3JweNYhwRYeGvd/1CKX2se0/2s7Q/nJA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -2437,6 +2444,9 @@ packages:
   find-up@5.0.0:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
+
+  find-workspaces@0.3.1:
+    resolution: {integrity: sha512-UDkGILGJSA1LN5Aa7McxCid4sqW3/e+UYsVwyxki3dDT0F8+ym0rAfnCkEfkL0rO7M+8/mvkim4t/s3IPHmg+w==}
 
   flat-cache@4.0.1:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
@@ -7024,6 +7034,10 @@ snapshots:
       semver: 7.6.3
       strip-indent: 3.0.0
 
+  eslint-plugin-workspaces@0.10.1:
+    dependencies:
+      find-workspaces: 0.3.1
+
   eslint-scope@8.0.2:
     dependencies:
       esrecurse: 4.3.0
@@ -7249,6 +7263,12 @@ snapshots:
     dependencies:
       locate-path: 6.0.0
       path-exists: 4.0.0
+
+  find-workspaces@0.3.1:
+    dependencies:
+      fast-glob: 3.3.2
+      pkg-types: 1.1.3
+      yaml: 2.5.0
 
   flat-cache@4.0.1:
     dependencies:
