@@ -4,7 +4,9 @@ const makeExampleServiceLive = () => {
 	return {
 		greet: (name?: string) => {
 			return Effect.gen(function* () {
-				if (name) return `Hello ${name}!`;
+				if (name) {
+					return `Hello ${name}!`;
+				}
 
 				yield* Effect.log("Anonymous user visited!");
 

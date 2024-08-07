@@ -11,6 +11,7 @@ import unicorn from "eslint-plugin-unicorn";
 import perfectionist from "eslint-plugin-perfectionist";
 import regexpPlugin from "eslint-plugin-regexp";
 import { FlatCompat } from "@eslint/eslintrc";
+import promise from "eslint-plugin-promise";
 
 const compat = new FlatCompat({
 	baseDirectory: import.meta.dirname,
@@ -71,7 +72,7 @@ export default tseslint.config(
 		name: "builtin overrides",
 		rules: {
 			"arrow-body-style": ["error", "always"],
-			curly: ["error", "multi", "consistent"],
+			curly: ["error", "all"],
 			"default-case-last": "error",
 			eqeqeq: "error",
 			"linebreak-style": ["error", "unix"],
@@ -152,7 +153,7 @@ export default tseslint.config(
 			radix: "error",
 			"require-atomic-updates": "error",
 			"require-unicode-regexp": "error",
-			"require-yield": "error",
+			"require-yield": "off",
 			"spaced-comment": ["error", "always"],
 			"symbol-description": "error",
 			yoda: ["error", "never"],
@@ -410,6 +411,6 @@ export default tseslint.config(
 		},
 	},
 	regexpPlugin.configs["flat/recommended"],
-	...fixupConfigRules(compat.extends("plugin:promise/recommended")),
+	promise.configs["flat/recommended"],
 	...fixupConfigRules(compat.extends("plugin:deprecation/recommended")),
 );

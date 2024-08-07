@@ -22,6 +22,8 @@ export default tseslint.config(
 			"react/prefer-read-only-props": "error",
 			"react/react-in-jsx-scope": "off",
 			"react/jsx-uses-react": "off",
+			"react/jsx-curly-brace-presence": ["error", { propElementValues: "always", children: "never", props: "never" }],
+			"react/jsx-boolean-value": ["error", "always"],
 		},
 		settings: {
 			react: {

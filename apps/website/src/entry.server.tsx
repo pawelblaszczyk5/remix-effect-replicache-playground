@@ -32,8 +32,10 @@ const handleRequest = async (
 				onError: (error: unknown) => {
 					finalResponseStatusCode = 500;
 
-					// eslint-disable-next-line no-console -- I'm not sure when this happen
-					if (shellRendered) console.error(error);
+					if (shellRendered) {
+						// eslint-disable-next-line no-console -- I'm not sure when this happen
+						console.error(error);
+					}
 				},
 				onShellError: (error: unknown) => {
 					// eslint-disable-next-line @typescript-eslint/prefer-promise-reject-errors -- this should be error ideally
