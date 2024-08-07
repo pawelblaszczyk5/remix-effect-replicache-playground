@@ -80,7 +80,7 @@ jobs:
       - name: Run
         run: pnpm typecheck
 
-  package-json-sorter:
+  sort-package-json:
     name: 📑 package.json sorter
     runs-on: ubuntu-latest
     steps:
@@ -91,4 +91,4 @@ jobs:
         uses: ./.github/composite-actions/setup
 
       - name: Run
-        run: pnpm package-json-sorter
+        run: pnpm sort-package-json
