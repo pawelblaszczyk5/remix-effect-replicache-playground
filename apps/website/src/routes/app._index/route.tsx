@@ -4,7 +4,7 @@ const getRandomInt = (max: number) => {
 	return Math.floor(Math.random() * max);
 };
 
-const AppRoute = () => {
+const Route = () => {
 	const data = useReplicacheData(async (tx) => {
 		return tx.get<number>("value");
 	});
@@ -34,4 +34,4 @@ const AppRoute = () => {
 	);
 };
 
-export default AppRoute;
+export default Route;

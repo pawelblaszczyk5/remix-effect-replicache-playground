@@ -13,7 +13,7 @@ export const loader = defineEffectLoader(
 	}),
 );
 
-const IndexAppRoute = () => {
+const Route = () => {
 	const greeting = useLoaderData<typeof loader>();
 
 	return (
@@ -39,4 +39,4 @@ const IndexAppRoute = () => {
 	);
 };
 
-export default IndexAppRoute;
+export default Route;

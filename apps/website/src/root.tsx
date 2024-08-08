@@ -33,8 +33,8 @@ export const Layout = ({ children }: Readonly<{ children: React.ReactNode }>) =>
 	);
 };
 
-const RootRoute = () => {
+const Route = () => {
 	return <Outlet />;
 };
 
-export default RootRoute;
+export default Route;

@@ -6,7 +6,7 @@ export const clientLoader = () => {
 	return null;
 };
 
-const AppLayout = () => {
+const Route = () => {
 	return (
 		<ReplicacheProvider userId="John Doe">
 			<title>App</title>
@@ -19,4 +19,4 @@ export const HydrateFallback = () => {
 	return <h1>Loading...</h1>;
 };
 
-export default AppLayout;
+export default Route;
