@@ -21,7 +21,7 @@
 	},
 	"dependencies": {
 		"@remix-run/node": "catalog:",
-		"@repo/example-service": "workspace:*",
+		"@repo/user-service": "workspace:*",
 		"effect": "catalog:"
 	},
 	"devDependencies": {

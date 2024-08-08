@@ -82,9 +82,9 @@ importers:
       '@repo/effect-runtime':
         specifier: workspace:*
         version: link:../../packages/effect-runtime
-      '@repo/example-service':
+      '@repo/user-service':
         specifier: workspace:*
-        version: link:../../packages/example-service
+        version: link:../../packages/user-service
       effect:
         specifier: 'catalog:'
         version: 3.6.1
@@ -167,9 +167,9 @@ importers:
       '@remix-run/node':
         specifier: 'catalog:'
         version: 2.11.1(typescript@5.5.4)
-      '@repo/example-service':
+      '@repo/user-service':
         specifier: workspace:*
-        version: link:../example-service
+        version: link:../user-service
       effect:
         specifier: 'catalog:'
         version: 3.6.1
@@ -190,11 +190,7 @@ importers:
         specifier: 'catalog:'
         version: 5.5.4
 
-  packages/example-service:
-    dependencies:
-      effect:
-        specifier: 'catalog:'
-        version: 3.6.1
+  packages/invariant:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -206,7 +202,11 @@ importers:
         specifier: 'catalog:'
         version: 5.5.4
 
-  packages/invariant:
+  packages/user-service:
+    dependencies:
+      effect:
+        specifier: 'catalog:'
+        version: 3.6.1
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*

@@ -5,9 +5,9 @@ import type { Scope } from "effect";
 import { unstable_defineAction, unstable_defineLoader } from "@remix-run/node";
 import { Context, Effect, Layer, Logger, ManagedRuntime } from "effect";
 
-import { ExampleServiceLive } from "@repo/example-service";
+import { UserService } from "@repo/user-service";
 
-const AppLayer = Layer.mergeAll(Logger.pretty, ExampleServiceLive);
+const AppLayer = Layer.mergeAll(Logger.pretty, UserService.live);
 
 const runtime = ManagedRuntime.make(AppLayer);
 

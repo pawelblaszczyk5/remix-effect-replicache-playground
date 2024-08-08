@@ -3,11 +3,11 @@ import { Effect } from "effect";
 
 import { css } from "@repo/css";
 import { data, defineEffectLoader } from "@repo/effect-runtime";
-import { ExampleService } from "@repo/example-service";
+import { UserService } from "@repo/user-service";
 
 export const loader = defineEffectLoader(
 	Effect.gen(function* () {
-		const exampleService = yield* ExampleService;
+		const exampleService = yield* UserService;
 
 		return data(yield* exampleService.greet(), {});
 	}),
