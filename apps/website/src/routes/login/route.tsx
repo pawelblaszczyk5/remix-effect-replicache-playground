@@ -45,11 +45,14 @@ export const action = defineEffectAction(
 
 const Route = () => {
 	return (
-		<Form method="POST">
-			<label htmlFor="name">Name</label>
-			<input id="name" name="name" required={true} type="text" />
-			<button type="submit">Login</button>
-		</Form>
+		<>
+			<title>Login</title>
+			<Form method="POST">
+				<label htmlFor="name">Name</label>
+				<input id="name" name="name" required={true} type="text" />
+				<button type="submit">Login</button>
+			</Form>
+		</>
 	);
 };
 

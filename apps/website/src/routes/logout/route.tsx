@@ -37,9 +37,12 @@ export const action = defineEffectAction(
 
 const Route = () => {
 	return (
-		<Form method="POST">
-			<button type="submit">Logout</button>
-		</Form>
+		<>
+			<title>Logout</title>
+			<Form method="POST">
+				<button type="submit">Logout</button>
+			</Form>
+		</>
 	);
 };
 
