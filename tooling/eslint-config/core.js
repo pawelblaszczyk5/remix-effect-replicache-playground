@@ -352,10 +352,13 @@ export default tseslint.config(
 				"error",
 				{
 					allowList: {
+						Args: true,
+						args: true,
 						ctx: true,
 						props: true,
 						dir: true,
 						rel: true,
+						Params: true,
 						params: true,
 					},
 					checkProperties: true,
