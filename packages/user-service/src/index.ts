@@ -19,19 +19,30 @@ const makeUserServiceLive = () => {
 		dir: "./sessions",
 	});
 
+	const getUser = () => {
+		return Effect.gen(function* () {
+			const request = yield* RemixRequest;
+			const cookieHeader = request.headers.get("Cookie");
+
+			const session = yield* Effect.tryPromise(async () => {
+				return getSession(cookieHeader);
+			});
+
+			const name = session.get("name");
+
+			return name;
+		});
+	};
+
 	return {
+		getUser,
 		greet: () => {
 			return Effect.gen(function* () {
-				const request = yield* RemixRequest;
-				const cookieHeader = request.headers.get("Cookie");
-
-				const session = yield* Effect.tryPromise(async () => {
-					return getSession(cookieHeader);
-				});
-
-				const name = session.get("name");
+				const name = yield* getUser();
 
 				if (name) {
+					yield* Effect.log(`User "${name}" visited!`);
+
 					return `Hello ${name}!`;
 				}
 

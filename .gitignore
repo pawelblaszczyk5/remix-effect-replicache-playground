@@ -13,6 +13,7 @@ build/
 .DS_Store
 *.pem
 pnpm-debug.log*
+sessions/
 
 # local env files
 .env

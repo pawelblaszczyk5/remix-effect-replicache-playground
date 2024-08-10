@@ -1,9 +1,11 @@
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 import type { UNSAFE_DataWithResponseInit as DataWithResponseInit } from "@remix-run/router";
-import type { Layer } from "effect";
+import type { Data, Layer } from "effect";
 
-import { unstable_data, unstable_defineAction, unstable_defineLoader } from "@remix-run/node";
-import { Effect, ManagedRuntime } from "effect";
+import { redirect, unstable_data, unstable_defineAction, unstable_defineLoader } from "@remix-run/node";
+import { Cause, Effect, Either, Exit, ManagedRuntime, Match } from "effect";
+
+import { Redirect } from "@repo/effect-errors";
 
 type Serializable =
 	| {
@@ -55,19 +57,45 @@ export const createEffectRemixRuntime = <AppEnvironment, RequestEnvironment>(
 ) => {
 	const runtime = ManagedRuntime.make(appContext);
 
-	const defineEffectLoader: DefineEffectLoader<AppEnvironment, RequestEnvironment> = (effect) => {
-		return unstable_defineLoader(async ({ params, request }: LoaderFunctionArgs) => {
-			const program = effect.pipe(Effect.provide(createRequestContext({ params, request })));
+	const runRemixEffect = async <Success, Error, Requirements extends AppEnvironment | RequestEnvironment>(
+		effect: Effect.Effect<Success, Error, Requirements>,
+		{ params, request }: ActionFunctionArgs | LoaderFunctionArgs,
+	) => {
+		const program = effect.pipe(Effect.provide(createRequestContext({ params, request })));
+		const result = await runtime.runPromiseExit(program);
 
-			return runtime.runPromise(program);
+		if (Exit.isSuccess(result)) {
+			return result.value;
+		}
+
+		const failureOrCause = Cause.failureOrCause(result.cause);
+
+		if (Either.isRight(failureOrCause)) {
+			throw new Error("Unexpected error", { cause: failureOrCause.right });
+		}
+
+		const throwable = Match.value(failureOrCause.left).pipe(
+			Match.when(Match.instanceOf(Redirect), (redirectError) => {
+				return redirect(redirectError.url, redirectError.init);
+			}),
+			Match.orElse((error) => {
+				return new Error("Unexpected error", { cause: error });
+			}),
+		);
+
+		// eslint-disable-next-line @typescript-eslint/only-throw-error -- it's fine there
+		throw throwable;
+	};
+
+	const defineEffectLoader: DefineEffectLoader<AppEnvironment, RequestEnvironment> = (effect) => {
+		return unstable_defineLoader(async (args: LoaderFunctionArgs) => {
+			return runRemixEffect(effect, args);
 		});
 	};
 
 	const defineEffectAction: DefineEffectAction<AppEnvironment, RequestEnvironment> = (effect) => {
-		return unstable_defineAction(async ({ params, request }: LoaderFunctionArgs) => {
-			const program = effect.pipe(Effect.provide(createRequestContext({ params, request })));
-
-			return runtime.runPromise(program);
+		return unstable_defineAction(async (args: ActionFunctionArgs) => {
+			return runRemixEffect(effect, args);
 		});
 	};
 

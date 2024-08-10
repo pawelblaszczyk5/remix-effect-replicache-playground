@@ -1,0 +1,8 @@
+{
+	"extends": "@repo/typescript-config/no-build",
+	"compilerOptions": {
+		"lib": ["esnext"],
+		"types": ["node"]
+	},
+	"include": ["src"]
+}

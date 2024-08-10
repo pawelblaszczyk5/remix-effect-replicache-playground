@@ -21,6 +21,7 @@
 	},
 	"dependencies": {
 		"@remix-run/node": "catalog:",
+		"@repo/effect-errors": "workspace:*",
 		"effect": "catalog:"
 	},
 	"devDependencies": {

@@ -79,9 +79,15 @@ importers:
       '@repo/css-reset':
         specifier: workspace:*
         version: link:../../packages/css-reset
+      '@repo/effect-errors':
+        specifier: workspace:*
+        version: link:../../packages/effect-errors
       '@repo/effect-runtime':
         specifier: workspace:*
         version: link:../../packages/effect-runtime
+      '@repo/request-context':
+        specifier: workspace:*
+        version: link:../../packages/request-context
       '@repo/user-service':
         specifier: workspace:*
         version: link:../../packages/user-service
@@ -162,11 +168,39 @@ importers:
 
   packages/css-reset: {}
 
+  packages/effect-errors:
+    dependencies:
+      '@remix-run/node':
+        specifier: 'catalog:'
+        version: 2.11.1(typescript@5.5.4)
+      effect:
+        specifier: 'catalog:'
+        version: 3.6.1
+    devDependencies:
+      '@remix-run/router':
+        specifier: ^1.19.0
+        version: 1.19.0
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.1.0
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
   packages/effect-remix:
     dependencies:
       '@remix-run/node':
         specifier: 'catalog:'
         version: 2.11.1(typescript@5.5.4)
+      '@repo/effect-errors':
+        specifier: workspace:*
+        version: link:../effect-errors
       effect:
         specifier: 'catalog:'
         version: 3.6.1
@@ -224,7 +258,7 @@ importers:
   packages/request-context:
     dependencies:
       '@repo/effect-remix':
-        specifier: 'workspace:'
+        specifier: workspace:*
         version: link:../effect-remix
       effect:
         specifier: 'catalog:'
@@ -246,7 +280,7 @@ importers:
         specifier: 'catalog:'
         version: 2.11.1(typescript@5.5.4)
       '@repo/request-context':
-        specifier: 'workspace:'
+        specifier: workspace:*
         version: link:../request-context
       effect:
         specifier: 'catalog:'

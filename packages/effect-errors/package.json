@@ -1,12 +1,12 @@
 {
-	"name": "@repo/user-service",
+	"name": "@repo/effect-errors",
 	"version": "0.0.1",
 	"private": true,
-	"description": "Effect service for user management",
+	"description": "Global-level errors",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/pawelblaszczyk5/remix-effect-replicache-playground",
-		"directory": "packages/user-service"
+		"directory": "packages/effect-errors"
 	},
 	"type": "module",
 	"imports": {
@@ -21,12 +21,13 @@
 	},
 	"dependencies": {
 		"@remix-run/node": "catalog:",
-		"@repo/request-context": "workspace:*",
 		"effect": "catalog:"
 	},
 	"devDependencies": {
+		"@remix-run/router": "^1.19.0",
 		"@repo/eslint-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
+		"@types/node": "catalog:",
 		"typescript": "catalog:"
 	}
 }

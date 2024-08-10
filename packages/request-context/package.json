@@ -20,7 +20,7 @@
 		"typecheck": "tsc"
 	},
 	"dependencies": {
-		"@repo/effect-remix": "workspace:",
+		"@repo/effect-remix": "workspace:*",
 		"effect": "catalog:"
 	},
 	"devDependencies": {
