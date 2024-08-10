@@ -2,14 +2,14 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { Effect } from "effect";
 
 import { css } from "@repo/css";
-import { data, defineEffectLoader } from "@repo/effect-runtime";
+import { defineEffectLoader } from "@repo/effect-runtime";
 import { UserService } from "@repo/user-service";
 
 export const loader = defineEffectLoader(
 	Effect.gen(function* () {
 		const exampleService = yield* UserService;
 
-		return data(yield* exampleService.greet(), {});
+		return yield* exampleService.greet();
 	}),
 );
 
