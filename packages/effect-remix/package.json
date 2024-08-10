@@ -1,12 +1,12 @@
 {
-	"name": "@repo/user-service",
+	"name": "@repo/effect-remix",
 	"version": "0.0.1",
 	"private": true,
-	"description": "Effect service for user management",
+	"description": "Abstraction for creating custom effect + remix runtime",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/pawelblaszczyk5/remix-effect-replicache-playground",
-		"directory": "packages/user-service"
+		"directory": "packages/effect-remix"
 	},
 	"type": "module",
 	"imports": {
@@ -21,10 +21,10 @@
 	},
 	"dependencies": {
 		"@remix-run/node": "catalog:",
-		"@repo/request-context": "workspace:",
 		"effect": "catalog:"
 	},
 	"devDependencies": {
+		"@remix-run/router": "^1.19.0",
 		"@repo/eslint-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
 		"typescript": "catalog:"

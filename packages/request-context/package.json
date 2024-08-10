@@ -1,12 +1,12 @@
 {
-	"name": "@repo/user-service",
+	"name": "@repo/request-context",
 	"version": "0.0.1",
 	"private": true,
-	"description": "Effect service for user management",
+	"description": "Per Remix request unique Effect context implementation",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/pawelblaszczyk5/remix-effect-replicache-playground",
-		"directory": "packages/user-service"
+		"directory": "packages/request-context"
 	},
 	"type": "module",
 	"imports": {
@@ -20,8 +20,7 @@
 		"typecheck": "tsc"
 	},
 	"dependencies": {
-		"@remix-run/node": "catalog:",
-		"@repo/request-context": "workspace:",
+		"@repo/effect-remix": "workspace:",
 		"effect": "catalog:"
 	},
 	"devDependencies": {

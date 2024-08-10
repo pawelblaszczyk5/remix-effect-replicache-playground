@@ -20,15 +20,14 @@
 		"typecheck": "tsc"
 	},
 	"dependencies": {
-		"@remix-run/node": "catalog:",
+		"@repo/effect-remix": "workspace:*",
+		"@repo/request-context": "workspace:*",
 		"@repo/user-service": "workspace:*",
 		"effect": "catalog:"
 	},
 	"devDependencies": {
-		"@remix-run/router": "^1.19.0",
 		"@repo/eslint-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
-		"@types/node": "catalog:",
 		"typescript": "catalog:"
 	}
 }
