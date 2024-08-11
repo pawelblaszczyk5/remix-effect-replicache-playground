@@ -14,10 +14,11 @@ const nanoid = customAlphabet(
 );
 
 export type Todo = {
-	completed: boolean;
+	createdAt: number;
 	id: string;
+	isCompleted: boolean;
+	isPrivate: boolean;
 	owner: string;
-	private: boolean;
 	text: string;
 };
 
@@ -25,41 +26,34 @@ const createReplicacheInstance = (userId: string) => {
 	const replicache = new Replicache({
 		licenseKey: import.meta.env["VITE_REPLICACHE_LICENSE_KEY"] as string,
 		mutators: {
-			createTodo: async (tx: WriteTransaction, data: Pick<Todo, "private" | "text">) => {
+			createTodo: async (tx: WriteTransaction, data: Pick<Todo, "isPrivate" | "text">) => {
 				const id = nanoid();
 
 				const todo = {
 					...data,
-					completed: false,
+					createdAt: Date.now(),
 					id,
+					isCompleted: false,
 					owner: userId,
 				} satisfies Todo;
 
 				await tx.set(`todo/${id}`, todo);
 			},
 			deleteTodo: async (tx: WriteTransaction, id: Todo["id"]) => {
+				const todo = await tx.get<Todo>(`todo/${id}`);
+
+				invariant(todo && todo.owner === userId);
+
 				await tx.del(`todo/${id}`);
 			},
-			updateTodoCompletion: async (tx: WriteTransaction, data: Pick<Todo, "completed" | "id">) => {
+			updateTodoCompletion: async (tx: WriteTransaction, data: Pick<Todo, "id" | "isCompleted">) => {
 				const todo = await tx.get<Todo>(`todo/${data.id}`);
 
 				invariant(todo);
 
 				const updatedTodo = {
 					...todo,
-					completed: data.completed,
-				} satisfies Todo;
-
-				await tx.set(`todo/${data.id}`, updatedTodo);
-			},
-			updateTodoText: async (tx: WriteTransaction, data: Pick<Todo, "id" | "text">) => {
-				const todo = await tx.get<Todo>(`todo/${data.id}`);
-
-				invariant(todo);
-
-				const updatedTodo = {
-					...todo,
-					text: data.text,
+					isCompleted: data.isCompleted,
 				} satisfies Todo;
 
 				await tx.set(`todo/${data.id}`, updatedTodo);
