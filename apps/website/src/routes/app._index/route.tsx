@@ -1,35 +1,19 @@
-import { useReplicacheData, useReplicacheMutation } from "#src/lib/replicache.client.js";
+import type { Todo } from "#src/lib/replicache.client.js";
 
-const getRandomInt = (max: number) => {
-	return Math.floor(Math.random() * max);
-};
+import { useReplicacheData, useReplicacheMutation } from "#src/lib/replicache.client.js";
 
 const Route = () => {
 	const data = useReplicacheData(async (tx) => {
-		return tx.get<number>("value");
+		return tx.scan<Todo>({ prefix: "todo/" }).toArray();
 	});
-	const { clearValue, updateValue } = useReplicacheMutation();
+
+	const { createTodo, updateTodoCompletion, updateTodoText } = useReplicacheMutation();
+
+	console.log(data);
 
 	return (
 		<div style={{ alignItems: "start", display: "flex", flexDirection: "column" }}>
 			<h1>Hello root app</h1>
-			<p>Current value: {data ?? "No value yet"}</p>
-			<button
-				onClick={async () => {
-					return updateValue(getRandomInt(500));
-				}}
-				type="button"
-			>
-				Update value
-			</button>
-			<button
-				onClick={async () => {
-					return clearValue();
-				}}
-				type="button"
-			>
-				Clear value
-			</button>
 		</div>
 	);
 };

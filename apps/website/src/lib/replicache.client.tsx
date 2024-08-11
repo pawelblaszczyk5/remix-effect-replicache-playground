@@ -1,18 +1,68 @@
 import type { ReactNode } from "react";
 import type { ReadTransaction, WriteTransaction } from "replicache";
 
+import { customAlphabet } from "nanoid";
 import { createContext, use, useContext, useEffect, useState } from "react";
 import { Replicache } from "replicache";
+
+import { invariant } from "@repo/invariant";
+
+const nanoid = customAlphabet(
+	/* cspell:disable-next-line */
+	"123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz",
+	24,
+);
+
+export type Todo = {
+	completed: boolean;
+	id: string;
+	owner: string;
+	private: boolean;
+	text: string;
+};
 
 const createReplicacheInstance = (userId: string) => {
 	const replicache = new Replicache({
 		licenseKey: import.meta.env["VITE_REPLICACHE_LICENSE_KEY"] as string,
 		mutators: {
-			clearValue: async (tx: WriteTransaction) => {
-				await tx.del("value");
+			createTodo: async (tx: WriteTransaction, data: Pick<Todo, "private" | "text">) => {
+				const id = nanoid();
+
+				const todo = {
+					...data,
+					completed: false,
+					id,
+					owner: userId,
+				} satisfies Todo;
+
+				await tx.set(`todo/${id}`, todo);
 			},
-			updateValue: async (tx: WriteTransaction, newValue: number) => {
-				await tx.set("value", newValue);
+			deleteTodo: async (tx: WriteTransaction, id: Todo["id"]) => {
+				await tx.del(`todo/${id}`);
+			},
+			updateTodoCompletion: async (tx: WriteTransaction, data: Pick<Todo, "completed" | "id">) => {
+				const todo = await tx.get<Todo>(`todo/${data.id}`);
+
+				invariant(todo);
+
+				const updatedTodo = {
+					...todo,
+					completed: data.completed,
+				} satisfies Todo;
+
+				await tx.set(`todo/${data.id}`, updatedTodo);
+			},
+			updateTodoText: async (tx: WriteTransaction, data: Pick<Todo, "id" | "text">) => {
+				const todo = await tx.get<Todo>(`todo/${data.id}`);
+
+				invariant(todo);
+
+				const updatedTodo = {
+					...todo,
+					text: data.text,
+				} satisfies Todo;
+
+				await tx.set(`todo/${data.id}`, updatedTodo);
 			},
 		},
 		name: userId,
