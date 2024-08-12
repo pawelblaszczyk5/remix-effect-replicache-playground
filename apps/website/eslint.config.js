@@ -22,7 +22,13 @@ export default [
 		files: ["src/routes/**/*.tsx", "src/root.tsx", "src/entry.server.tsx"],
 		rules: {
 			"import-x/no-default-export": "off",
-			"react-refresh/only-export-components": "off",
+			"react-refresh/only-export-components": [
+				"warn",
+				{
+					allowConstantExport: true,
+					allowExportNames: ["meta", "links", "headers", "loader", "action", "clientLoader", "clientAction"],
+				},
+			],
 		},
 	},
 ];
