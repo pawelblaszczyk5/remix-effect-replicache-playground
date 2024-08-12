@@ -22,8 +22,8 @@ catalogs:
       specifier: ^22.2.0
       version: 22.2.0
     effect:
-      specifier: ^3.6.2
-      version: 3.6.2
+      specifier: ^3.6.3
+      version: 3.6.3
     typescript:
       specifier: ^5.5.4
       version: 5.5.4
@@ -96,7 +96,7 @@ importers:
         version: link:../../packages/user-service
       effect:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.6.3
       isbot:
         specifier: ^5.1.14
         version: 5.1.14
@@ -181,7 +181,7 @@ importers:
         version: 2.11.1(typescript@5.5.4)
       effect:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.6.3
     devDependencies:
       '@remix-run/router':
         specifier: ^1.19.0
@@ -209,7 +209,7 @@ importers:
         version: link:../effect-errors
       effect:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.6.3
     devDependencies:
       '@remix-run/router':
         specifier: ^1.19.0
@@ -237,7 +237,7 @@ importers:
         version: link:../user-service
       effect:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.6.3
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -268,7 +268,7 @@ importers:
         version: link:../effect-remix
       effect:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.6.3
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -290,7 +290,7 @@ importers:
         version: link:../request-context
       effect:
         specifier: 'catalog:'
-        version: 3.6.2
+        version: 3.6.3
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -2102,8 +2102,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  effect@3.6.2:
-    resolution: {integrity: sha512-7ug9kTf14PWs5AojEEmB1Ay3YTHCcIZq92K0nOhze1VUsqENxICf06M2z0wfVbHwIqJFOdomasfTysxdu+Xi9A==}
+  effect@3.6.3:
+    resolution: {integrity: sha512-KHD2j476/9KvmeqBN+kNNf+HwCycLqSY1jqxtVjL0P0D7SMV9FGSMBiNmFqy8BZ7kKCsCeF2sQ/8v6KxKF3Gkg==}
 
   electron-to-chromium@1.4.832:
     resolution: {integrity: sha512-cTen3SB0H2SGU7x467NRe1eVcQgcuS6jckKfWJHia2eo0cHIGOqHoAxevIYZD4eRHcWjkvFzo93bi3vJ9W+1lA==}
@@ -6643,7 +6643,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  effect@3.6.2: {}
+  effect@3.6.3: {}
 
   electron-to-chromium@1.4.832: {}
 
