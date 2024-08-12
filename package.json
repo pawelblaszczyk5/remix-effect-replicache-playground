@@ -22,10 +22,10 @@
 		"update-dependencies": "taze major --write --interactive --recursive --includeLocked --force"
 	},
 	"devDependencies": {
-		"cspell": "^8.13.2",
+		"cspell": "^8.13.3",
 		"prettier": "^3.3.3",
 		"sort-package-json": "^2.10.0",
-		"taze": "^0.16.3",
+		"taze": "^0.16.5",
 		"turbo": "2.0.12",
 		"typescript": "catalog:"
 	},
