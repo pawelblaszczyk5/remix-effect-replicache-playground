@@ -1,7 +1,6 @@
-import type { ClientLoaderFunctionArgs } from "@remix-run/react";
-
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { Effect } from "effect";
+import { startTransition, useEffect, useState } from "react";
 
 import { Redirect } from "@repo/effect-errors";
 import { defineEffectLoader } from "@repo/effect-runtime";
@@ -19,25 +18,24 @@ export const loader = defineEffectLoader(
 			return yield* new Redirect({ url: "/login" });
 		}
 
-		return user;
+		return { user };
 	}),
 );
 
-export const clientLoader = async ({ serverLoader }: ClientLoaderFunctionArgs) => {
-	const data = await serverLoader<typeof loader>();
-
-	if (typeof data === "object") {
-		// eslint-disable-next-line @typescript-eslint/only-throw-error -- it's fine there
-		throw data;
-	}
-
-	return { user: data };
-};
-
-clientLoader.hydrate = true;
-
 const Route = () => {
-	const { user } = useLoaderData<typeof clientLoader>();
+	const { user } = useLoaderData<typeof loader>();
+
+	const [isHydrated, setIsHydrated] = useState(false);
+
+	useEffect(() => {
+		startTransition(() => {
+			setIsHydrated(true);
+		});
+	}, []);
+
+	if (!isHydrated) {
+		return <h1>Loading...</h1>;
+	}
 
 	return (
 		<ReplicacheProvider userId={user}>
@@ -45,10 +43,6 @@ const Route = () => {
 			<Outlet />
 		</ReplicacheProvider>
 	);
-};
-
-export const HydrateFallback = () => {
-	return <h1>Loading...</h1>;
 };
 
 export default Route;
