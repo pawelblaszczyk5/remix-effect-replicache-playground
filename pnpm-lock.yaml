@@ -31,8 +31,8 @@ catalogs:
 overrides:
   '@types/react': npm:types-react@19.0.0-rc.1
   '@types/react-dom': npm:types-react-dom@19.0.0-rc.1
-  react: 19.0.0-rc-e948a5ac-20240807
-  react-dom: 19.0.0-rc-e948a5ac-20240807
+  react: 19.0.0-rc-d48603a5-20240813
+  react-dom: 19.0.0-rc-d48603a5-20240813
 
 patchedDependencies:
   eslint-plugin-import-x:
@@ -69,7 +69,7 @@ importers:
         version: 2.11.1(typescript@5.5.4)
       '@remix-run/react':
         specifier: 'catalog:'
-        version: 2.11.1(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)
+        version: 2.11.1(react-dom@19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813))(react@19.0.0-rc-d48603a5-20240813)(typescript@5.5.4)
       '@remix-run/serve':
         specifier: 'catalog:'
         version: 2.11.1(typescript@5.5.4)
@@ -104,24 +104,24 @@ importers:
         specifier: ^5.0.7
         version: 5.0.7
       react:
-        specifier: 19.0.0-rc-e948a5ac-20240807
-        version: 19.0.0-rc-e948a5ac-20240807
+        specifier: 19.0.0-rc-d48603a5-20240813
+        version: 19.0.0-rc-d48603a5-20240813
       react-dom:
-        specifier: 19.0.0-rc-e948a5ac-20240807
-        version: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
+        specifier: 19.0.0-rc-d48603a5-20240813
+        version: 19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813)
       replicache:
         specifier: ^15.0.1
         version: 15.0.1
       replicache-react:
         specifier: ^5.0.1
-        version: 5.0.1(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)
+        version: 5.0.1(react-dom@19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813))(react@19.0.0-rc-d48603a5-20240813)
     devDependencies:
       '@babel/preset-typescript':
         specifier: ^7.24.7
         version: 7.24.7(@babel/core@7.24.9)
       '@remix-run/dev':
         specifier: 'catalog:'
-        version: 2.11.1(@remix-run/react@2.11.1(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4))(@remix-run/serve@2.11.1(typescript@5.5.4))(@types/node@22.2.0)(typescript@5.5.4)(vite@5.4.0(@types/node@22.2.0))
+        version: 2.11.1(@remix-run/react@2.11.1(react-dom@19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813))(react@19.0.0-rc-d48603a5-20240813)(typescript@5.5.4))(@remix-run/serve@2.11.1(typescript@5.5.4))(@types/node@22.2.0)(typescript@5.5.4)(vite@5.4.0(@types/node@22.2.0))
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../tooling/eslint-config
@@ -156,8 +156,8 @@ importers:
         specifier: ^2.0.4
         version: 2.0.4
       react:
-        specifier: 19.0.0-rc-e948a5ac-20240807
-        version: 19.0.0-rc-e948a5ac-20240807
+        specifier: 19.0.0-rc-d48603a5-20240813
+        version: 19.0.0-rc-d48603a5-20240813
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*
@@ -350,8 +350,8 @@ importers:
         specifier: ^3.1.3
         version: 3.1.3(eslint@9.9.0(jiti@1.21.6))(typescript@5.5.4)
       eslint-plugin-prefer-arrow-functions:
-        specifier: ^3.3.2
-        version: 3.3.2(eslint@9.9.0(jiti@1.21.6))
+        specifier: ^3.4.0
+        version: 3.4.0(eslint@9.9.0(jiti@1.21.6))
       eslint-plugin-promise:
         specifier: ^7.1.0
         version: 7.1.0(eslint@9.9.0(jiti@1.21.6))
@@ -359,8 +359,8 @@ importers:
         specifier: ^7.35.0
         version: 7.35.0(eslint@9.9.0(jiti@1.21.6))
       eslint-plugin-react-compiler:
-        specifier: 0.0.0-experimental-9ed098e-20240725
-        version: 0.0.0-experimental-9ed098e-20240725(eslint@9.9.0(jiti@1.21.6))
+        specifier: 0.0.0-experimental-56229e1-20240813
+        version: 0.0.0-experimental-56229e1-20240813(eslint@9.9.0(jiti@1.21.6))
       eslint-plugin-react-hooks:
         specifier: ^4.6.2
         version: 4.6.2(eslint@9.9.0(jiti@1.21.6))
@@ -1200,8 +1200,8 @@ packages:
     resolution: {integrity: sha512-bXilQrHx5WVHsdA6UFkWxYVePZJ1kzwfa/KYMdbMZi6zsSlv2/N6ZbgNuoemt8oM8/YgCT6EOPITzCgz+zEMVw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-e948a5ac-20240807
-      react-dom: 19.0.0-rc-e948a5ac-20240807
+      react: 19.0.0-rc-d48603a5-20240813
+      react-dom: 19.0.0-rc-d48603a5-20240813
       typescript: ^5.1.0
     peerDependenciesMeta:
       typescript:
@@ -2357,10 +2357,11 @@ packages:
       vue-eslint-parser:
         optional: true
 
-  eslint-plugin-prefer-arrow-functions@3.3.2:
-    resolution: {integrity: sha512-XRGsga9cK6pZ48IA2PM2PABBlWshRYhkofkQxcWzCM0YlDnal2hrQKsuz0FqtBHimJpgEXGgHUko3KrOayxlOQ==}
+  eslint-plugin-prefer-arrow-functions@3.4.0:
+    resolution: {integrity: sha512-YNusmVYGVQzRRWPpCHZh+Yql/igQqpDrrHn8IMXLxoLbSz/D7L+cmzoJ6M8+SY9H5mVvSMRC3/GzFoGuAc2P0w==}
+    engines: {node: '>=18.0.0'}
     peerDependencies:
-      eslint: '>=5.0.0'
+      eslint: '>=9.0.0'
 
   eslint-plugin-promise@7.1.0:
     resolution: {integrity: sha512-8trNmPxdAy3W620WKDpaS65NlM5yAumod6XeC4LOb+jxlkG4IVcp68c6dXY2ev+uT4U1PtG57YDV6EGAXN0GbQ==}
@@ -2368,8 +2369,8 @@ packages:
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
 
-  eslint-plugin-react-compiler@0.0.0-experimental-9ed098e-20240725:
-    resolution: {integrity: sha512-Xv2iD8kU6R4Wdjdh1WhdP8UnSqSV+/XcadxwBCmMr836fQUoXGuw/uVGc01v9opZs9SwKzo+8My6ayVCgAinPA==}
+  eslint-plugin-react-compiler@0.0.0-experimental-56229e1-20240813:
+    resolution: {integrity: sha512-pRrxJDK4egJrCf4bXyUCDWooFju9ytzMu0UH+CJB+ELi6jxns5KaRWdKFLFY5jFc7a+mZ1fzFfBP0Vop4I+BMQ==}
     engines: {node: ^14.17.0 || ^16.0.0 || >= 18.0.0}
     peerDependencies:
       eslint: '>=7'
@@ -3897,10 +3898,10 @@ packages:
     resolution: {integrity: sha512-8zGqypfENjCIqGhgXToC8aB2r7YrBX+AQAfIPs/Mlk+BtPTztOvTS01NRW/3Eh60J+a48lt8qsCzirQ6loCVfA==}
     engines: {node: '>= 0.8'}
 
-  react-dom@19.0.0-rc-e948a5ac-20240807:
-    resolution: {integrity: sha512-FVjbcTEsbHn00XuWb1Q0zeTHk27M5kAGw7k8Y1U/M748dIqJOoL64C5n9+YBq7XbGrk10c3wKLYB0DJ8LkBRzw==}
+  react-dom@19.0.0-rc-d48603a5-20240813:
+    resolution: {integrity: sha512-kuACwJktdFOw8Nmt8sXZIheJQnW9eyE+50cPLEiXXe3WgzbVaY2FHI6YXJYQydPLQ8C/TSrfzmDZylylMzYxGA==}
     peerDependencies:
-      react: 19.0.0-rc-e948a5ac-20240807
+      react: 19.0.0-rc-d48603a5-20240813
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -3913,17 +3914,17 @@ packages:
     resolution: {integrity: sha512-RRGUIiDtLrkX3uYcFiCIxKFWMcWQGMojpYZfcstc63A1+sSnVgILGIm9gNUA6na3Fm1QuPGSBQH2EMbAZOnMsQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-e948a5ac-20240807
-      react-dom: 19.0.0-rc-e948a5ac-20240807
+      react: 19.0.0-rc-d48603a5-20240813
+      react-dom: 19.0.0-rc-d48603a5-20240813
 
   react-router@6.26.0:
     resolution: {integrity: sha512-wVQq0/iFYd3iZ9H2l3N3k4PL8EEHcb0XlU2Na8nEwmiXgIUElEH6gaJDtUQxJ+JFzmIXaQjfdpcGWaM6IoQGxg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      react: 19.0.0-rc-e948a5ac-20240807
+      react: 19.0.0-rc-d48603a5-20240813
 
-  react@19.0.0-rc-e948a5ac-20240807:
-    resolution: {integrity: sha512-HQz6Ien3YXDqFFsZcoEagiXk43VOtyvEQAk2ZR/+99dnhRxlFT7e2n0g6qgeD2B/S7UZimiYS+HQS410xhvMxg==}
+  react@19.0.0-rc-d48603a5-20240813:
+    resolution: {integrity: sha512-h4+AbAVTe95y5WLAeMBoA5VMWTPZ/TlqzkSLPV6GI41TqmsijJ2PiPhRhOoZzpp/T+JV8C2LdroL3qGqwgPyPQ==}
     engines: {node: '>=0.10.0'}
 
   read-pkg-up@7.0.1:
@@ -3999,8 +4000,8 @@ packages:
   replicache-react@5.0.1:
     resolution: {integrity: sha512-xwiVdoANIX9oagqK8sT/txx9ltfEmkKgbJivdVvyz13bj5PAT+b8o9xuMtY4X1bJgu+9mn04muWPKtPv9MV/ZA==}
     peerDependencies:
-      react: 19.0.0-rc-e948a5ac-20240807
-      react-dom: 19.0.0-rc-e948a5ac-20240807
+      react: 19.0.0-rc-d48603a5-20240813
+      react-dom: 19.0.0-rc-d48603a5-20240813
 
   replicache@15.0.1:
     resolution: {integrity: sha512-I7HK6h2eT2QNxO4mwQFDqbuxhvCQgSlU4QuwfN9dqA6EKnO73VYiKB676r36N3q5W7L+htLgAcrSsrX+JPsRlQ==}
@@ -4090,8 +4091,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  scheduler@0.25.0-rc-e948a5ac-20240807:
-    resolution: {integrity: sha512-LH8rwsrnIYe1YTz0odUZWq5+rCZZqcw69DTx0eSnD1xx3q1AM60gEYrpis6Uf3p5bMU2wFxjtlubx/Pw+kvfCA==}
+  scheduler@0.25.0-rc-d48603a5-20240813:
+    resolution: {integrity: sha512-PTvBmlpXlrUb61CeGZqI4zSfdsUDewxnRIQP+UC1XOy3Ol3SvbcOJYMJ+fDY7vF/QfebMB15OgtD7rAc04srQQ==}
 
   scslre@0.3.0:
     resolution: {integrity: sha512-3A6sD0WYP7+QrjbfNA2FN3FsOaGGFoekCVgTyypy53gPxhbkCIjtO6YWgdrfM+n/8sI8JeXZOIxsHjMTNxQ4nQ==}
@@ -5517,7 +5518,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@remix-run/dev@2.11.1(@remix-run/react@2.11.1(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4))(@remix-run/serve@2.11.1(typescript@5.5.4))(@types/node@22.2.0)(typescript@5.5.4)(vite@5.4.0(@types/node@22.2.0))':
+  '@remix-run/dev@2.11.1(@remix-run/react@2.11.1(react-dom@19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813))(react@19.0.0-rc-d48603a5-20240813)(typescript@5.5.4))(@remix-run/serve@2.11.1(typescript@5.5.4))(@types/node@22.2.0)(typescript@5.5.4)(vite@5.4.0(@types/node@22.2.0))':
     dependencies:
       '@babel/core': 7.24.9
       '@babel/generator': 7.24.10
@@ -5530,7 +5531,7 @@ snapshots:
       '@mdx-js/mdx': 2.3.0
       '@npmcli/package-json': 4.0.1
       '@remix-run/node': 2.11.1(typescript@5.5.4)
-      '@remix-run/react': 2.11.1(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)
+      '@remix-run/react': 2.11.1(react-dom@19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813))(react@19.0.0-rc-d48603a5-20240813)(typescript@5.5.4)
       '@remix-run/router': 1.19.0
       '@remix-run/server-runtime': 2.11.1(typescript@5.5.4)
       '@types/mdx': 2.0.13
@@ -5612,14 +5613,14 @@ snapshots:
     optionalDependencies:
       typescript: 5.5.4
 
-  '@remix-run/react@2.11.1(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)(typescript@5.5.4)':
+  '@remix-run/react@2.11.1(react-dom@19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813))(react@19.0.0-rc-d48603a5-20240813)(typescript@5.5.4)':
     dependencies:
       '@remix-run/router': 1.19.0
       '@remix-run/server-runtime': 2.11.1(typescript@5.5.4)
-      react: 19.0.0-rc-e948a5ac-20240807
-      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
-      react-router: 6.26.0(react@19.0.0-rc-e948a5ac-20240807)
-      react-router-dom: 6.26.0(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807)
+      react: 19.0.0-rc-d48603a5-20240813
+      react-dom: 19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813)
+      react-router: 6.26.0(react@19.0.0-rc-d48603a5-20240813)
+      react-router-dom: 6.26.0(react-dom@19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813))(react@19.0.0-rc-d48603a5-20240813)
       turbo-stream: 2.2.0
     optionalDependencies:
       typescript: 5.5.4
@@ -7111,7 +7112,7 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-prefer-arrow-functions@3.3.2(eslint@9.9.0(jiti@1.21.6)):
+  eslint-plugin-prefer-arrow-functions@3.4.0(eslint@9.9.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.9.0(jiti@1.21.6)
 
@@ -7119,7 +7120,7 @@ snapshots:
     dependencies:
       eslint: 9.9.0(jiti@1.21.6)
 
-  eslint-plugin-react-compiler@0.0.0-experimental-9ed098e-20240725(eslint@9.9.0(jiti@1.21.6)):
+  eslint-plugin-react-compiler@0.0.0-experimental-56229e1-20240813(eslint@9.9.0(jiti@1.21.6)):
     dependencies:
       '@babel/core': 7.24.9
       '@babel/parser': 7.24.8
@@ -8926,28 +8927,28 @@ snapshots:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-  react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807):
+  react-dom@19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813):
     dependencies:
-      react: 19.0.0-rc-e948a5ac-20240807
-      scheduler: 0.25.0-rc-e948a5ac-20240807
+      react: 19.0.0-rc-d48603a5-20240813
+      scheduler: 0.25.0-rc-d48603a5-20240813
 
   react-is@16.13.1: {}
 
   react-refresh@0.14.2: {}
 
-  react-router-dom@6.26.0(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807):
+  react-router-dom@6.26.0(react-dom@19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813))(react@19.0.0-rc-d48603a5-20240813):
     dependencies:
       '@remix-run/router': 1.19.0
-      react: 19.0.0-rc-e948a5ac-20240807
-      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
-      react-router: 6.26.0(react@19.0.0-rc-e948a5ac-20240807)
+      react: 19.0.0-rc-d48603a5-20240813
+      react-dom: 19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813)
+      react-router: 6.26.0(react@19.0.0-rc-d48603a5-20240813)
 
-  react-router@6.26.0(react@19.0.0-rc-e948a5ac-20240807):
+  react-router@6.26.0(react@19.0.0-rc-d48603a5-20240813):
     dependencies:
       '@remix-run/router': 1.19.0
-      react: 19.0.0-rc-e948a5ac-20240807
+      react: 19.0.0-rc-d48603a5-20240813
 
-  react@19.0.0-rc-e948a5ac-20240807: {}
+  react@19.0.0-rc-d48603a5-20240813: {}
 
   read-pkg-up@7.0.1:
     dependencies:
@@ -9062,10 +9063,10 @@ snapshots:
 
   repeat-string@1.6.1: {}
 
-  replicache-react@5.0.1(react-dom@19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807))(react@19.0.0-rc-e948a5ac-20240807):
+  replicache-react@5.0.1(react-dom@19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813))(react@19.0.0-rc-d48603a5-20240813):
     dependencies:
-      react: 19.0.0-rc-e948a5ac-20240807
-      react-dom: 19.0.0-rc-e948a5ac-20240807(react@19.0.0-rc-e948a5ac-20240807)
+      react: 19.0.0-rc-d48603a5-20240813
+      react-dom: 19.0.0-rc-d48603a5-20240813(react@19.0.0-rc-d48603a5-20240813)
 
   replicache@15.0.1:
     dependencies:
@@ -9166,7 +9167,7 @@ snapshots:
 
   safer-buffer@2.1.2: {}
 
-  scheduler@0.25.0-rc-e948a5ac-20240807: {}
+  scheduler@0.25.0-rc-d48603a5-20240813: {}
 
   scslre@0.3.0:
     dependencies:

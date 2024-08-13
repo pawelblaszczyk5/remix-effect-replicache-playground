@@ -247,7 +247,7 @@ export default tseslint.config(
 	{
 		name: "prefer-arrow-functions",
 		plugins: {
-			"prefer-arrow-functions": fixupPluginRules(preferArrowFunctions),
+			"prefer-arrow-functions": preferArrowFunctions,
 		},
 		rules: {
 			"prefer-arrow-functions/prefer-arrow-functions": [

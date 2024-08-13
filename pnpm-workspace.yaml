@@ -10,8 +10,8 @@ catalog:
   "@remix-run/serve": ^2.11.1
   "@types/node": ^22.2.0
   effect: ^3.6.3
-  react: 19.0.0-rc-e948a5ac-20240807
-  react-dom: 19.0.0-rc-e948a5ac-20240807
+  react: 19.0.0-rc-d48603a5-20240813
+  react-dom: 19.0.0-rc-d48603a5-20240813
   "@types/react": npm:types-react@19.0.0-rc.1
   "@types/react-dom": npm:types-react-dom@19.0.0-rc.1
   typescript: ^5.5.4
