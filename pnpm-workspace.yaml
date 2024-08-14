@@ -8,7 +8,7 @@ catalog:
   "@remix-run/node": ^2.11.1
   "@remix-run/react": ^2.11.1
   "@remix-run/serve": ^2.11.1
-  "@types/node": ^22.2.0
+  "@types/node": ^22.3.0
   effect: ^3.6.3
   react: 19.0.0-rc-d48603a5-20240813
   react-dom: 19.0.0-rc-d48603a5-20240813

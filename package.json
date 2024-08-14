@@ -25,14 +25,14 @@
 		"cspell": "^8.13.3",
 		"prettier": "^3.3.3",
 		"sort-package-json": "^2.10.0",
-		"taze": "^0.16.5",
-		"turbo": "2.0.12",
+		"taze": "^0.16.6",
+		"turbo": "2.0.13",
 		"typescript": "catalog:"
 	},
-	"packageManager": "pnpm@9.7.0",
+	"packageManager": "pnpm@9.7.1",
 	"engines": {
 		"node": "22.5.1",
-		"pnpm": "9.7.0"
+		"pnpm": "9.7.1"
 	},
 	"engineStrict": true,
 	"pnpm": {
