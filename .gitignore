@@ -15,5 +15,9 @@ build/
 pnpm-debug.log*
 sessions/
 
-# local env files
+# local SQLite files
+apps/website/local/*
+!apps/website/local/.gitkeep
+
+# env files
 .env

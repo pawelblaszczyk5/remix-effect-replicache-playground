@@ -52,7 +52,8 @@ export type DefineEffectLoader<AppEnvironment, RequestEnvironment> = <
 ) => (args: LoaderFunctionArgs) => Promise<Success>;
 
 export const createEffectRemixRuntime = <AppEnvironment, RequestEnvironment>(
-	appContext: Layer.Layer<AppEnvironment>,
+	// NOTE Handle this better
+	appContext: Layer.Layer<AppEnvironment, unknown>,
 	createRequestContext: CreateRequestContext<RequestEnvironment>,
 ) => {
 	const runtime = ManagedRuntime.make(appContext);

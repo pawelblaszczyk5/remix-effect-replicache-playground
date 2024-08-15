@@ -2,11 +2,22 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { Effect } from "effect";
 
 import { css } from "@repo/css";
+import { Database } from "@repo/database";
 import { defineEffectLoader } from "@repo/effect-runtime";
 import { UserService } from "@repo/user-service";
 
 export const loader = defineEffectLoader(
 	Effect.gen(function* () {
+		const database = yield* Database;
+
+		yield* Effect.tryPromise(async () => {
+			return database.query.entries.findMany().execute();
+		}).pipe(
+			Effect.tap((data) => {
+				return Effect.log(data);
+			}),
+		);
+
 		const userService = yield* UserService;
 		const user = yield* userService.getUser();
 		const greeting = yield* userService.greet();
