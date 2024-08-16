@@ -7,11 +7,10 @@
 		".git/",
 		".gitignore",
 		".vscode/",
-		"./patches/"
+		"./patches/",
+		"./packages/database/drizzle/"
 	],
-	"dictionaries": [
-		"lorem-ipsum"
-	],
+	"dictionaries": ["lorem-ipsum"],
 	"useGitignore": true,
 	"words": [
 		"buildinfo",
@@ -35,8 +34,5 @@
 		"unitless"
 	],
 	"enableGlobDot": true,
-	"enableFiletypes": [
-		"dockerfile",
-		"github-actions-workflow"
-	]
+	"enableFiletypes": ["dockerfile", "github-actions-workflow"]
 }
