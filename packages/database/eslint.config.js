@@ -1,5 +1,5 @@
-import core from "@pawelblaszczyk.dev/eslint-config/core";
-import node from "@pawelblaszczyk.dev/eslint-config/node";
+import core from "@repo/eslint-config/core";
+import node from "@repo/eslint-config/node";
 
 export default [
 	{
