@@ -283,6 +283,22 @@ importers:
         specifier: 'catalog:'
         version: 5.5.4
 
+  packages/id:
+    dependencies:
+      nanoid:
+        specifier: ^5.0.7
+        version: 5.0.7
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
   packages/invariant:
     devDependencies:
       '@repo/eslint-config':
