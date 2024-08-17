@@ -22,4 +22,7 @@ export default defineConfig({
 			filter: /\.[jt]sx?$/u,
 		}),
 	],
+	ssr: {
+		external: ["@libsql/client"],
+	},
 });
