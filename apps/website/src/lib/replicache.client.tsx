@@ -1,17 +1,11 @@
 import type { ReactNode } from "react";
 import type { ReadTransaction, WriteTransaction } from "replicache";
 
-import { customAlphabet } from "nanoid";
 import { createContext, use, useContext, useEffect, useState } from "react";
 import { Replicache } from "replicache";
 
+import { generateId } from "@repo/id";
 import { invariant } from "@repo/invariant";
-
-const nanoid = customAlphabet(
-	/* cspell:disable-next-line */
-	"123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz",
-	24,
-);
 
 export type Todo = {
 	createdAt: number;
@@ -27,7 +21,7 @@ const createReplicacheInstance = (userId: string) => {
 		licenseKey: import.meta.env["VITE_REPLICACHE_LICENSE_KEY"] as string,
 		mutators: {
 			createTodo: async (tx: WriteTransaction, data: Pick<Todo, "isPrivate" | "text">) => {
-				const id = nanoid();
+				const id = generateId();
 
 				const todo = {
 					...data,

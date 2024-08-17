@@ -88,6 +88,9 @@ importers:
       '@repo/effect-runtime':
         specifier: workspace:*
         version: link:../../packages/effect-runtime
+      '@repo/id':
+        specifier: workspace:*
+        version: link:../../packages/id
       '@repo/invariant':
         specifier: workspace:*
         version: link:../../packages/invariant
@@ -103,9 +106,6 @@ importers:
       isbot:
         specifier: ^5.1.15
         version: 5.1.15
-      nanoid:
-        specifier: ^5.0.7
-        version: 5.0.7
       react:
         specifier: 19.0.0-rc-d48603a5-20240813
         version: 19.0.0-rc-d48603a5-20240813
