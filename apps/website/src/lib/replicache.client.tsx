@@ -4,7 +4,6 @@ import type { ReadTransaction, WriteTransaction } from "replicache";
 import { createContext, use, useContext, useEffect, useState } from "react";
 import { Replicache } from "replicache";
 
-import { generateId } from "@repo/id";
 import { invariant } from "@repo/invariant";
 
 export type Todo = {
@@ -20,18 +19,16 @@ const createReplicacheInstance = (userId: string) => {
 	const replicache = new Replicache({
 		licenseKey: import.meta.env["VITE_REPLICACHE_LICENSE_KEY"] as string,
 		mutators: {
-			createTodo: async (tx: WriteTransaction, data: Pick<Todo, "isPrivate" | "text">) => {
-				const id = generateId();
-
+			createTodo: async (
+				tx: WriteTransaction,
+				data: Pick<Todo, "createdAt" | "id" | "isPrivate" | "owner" | "text">,
+			) => {
 				const todo = {
 					...data,
-					createdAt: Date.now(),
-					id,
 					isCompleted: false,
-					owner: userId,
 				} satisfies Todo;
 
-				await tx.set(`todo/${id}`, todo);
+				await tx.set(`todo/${data.id}`, todo);
 			},
 			deleteTodo: async (tx: WriteTransaction, id: Todo["id"]) => {
 				const todo = await tx.get<Todo>(`todo/${id}`);

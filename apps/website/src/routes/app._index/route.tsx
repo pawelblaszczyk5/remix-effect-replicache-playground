@@ -1,21 +1,13 @@
-import { useMatches } from "@remix-run/react";
 import { useId } from "react";
-
-import { invariant } from "@repo/invariant";
 
 import type { Todo } from "#src/lib/replicache.client.js";
 
-import { useReplicacheData, useReplicacheMutation } from "#src/lib/replicache.client.js";
+import { useCreateTodo, useCurrentUser, useDeleteTodo, useTodos, useUpdateTodoCompletion } from "#src/lib/state.js";
 
 const TodoItem = ({ item }: { readonly item: Todo }) => {
-	const matches = useMatches();
-	const match = matches[1];
-
-	invariant(match);
-
-	const currentUser = (match.data as { user: string }).user;
-
-	const { deleteTodo, updateTodoCompletion } = useReplicacheMutation();
+	const currentUser = useCurrentUser();
+	const updateTodoCompletion = useUpdateTodoCompletion();
+	const deleteTodo = useDeleteTodo();
 
 	return (
 		<li style={{ display: "flex", gap: 8 }}>
@@ -42,7 +34,7 @@ const TodoItem = ({ item }: { readonly item: Todo }) => {
 };
 
 const TodoForm = () => {
-	const { createTodo } = useReplicacheMutation();
+	const createTodo = useCreateTodo();
 
 	const id = useId();
 
@@ -69,13 +61,7 @@ const TodoForm = () => {
 };
 
 const Route = () => {
-	const data = useReplicacheData(async (tx) => {
-		const items = await tx.scan<Todo>({ prefix: "todo/" }).toArray();
-
-		return items.toSorted((a, b) => {
-			return a.createdAt - b.createdAt;
-		});
-	});
+	const data = useTodos();
 
 	return (
 		<div style={{ alignItems: "center", display: "flex", flexDirection: "column", gap: 16 }}>
