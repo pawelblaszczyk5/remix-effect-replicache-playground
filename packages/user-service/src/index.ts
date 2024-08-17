@@ -14,7 +14,8 @@ const makeUserServiceLive = () => {
 			name: "__session__",
 			path: "/",
 			sameSite: "lax",
-			secure: true,
+			// NOTE setting this to false because I don't host it anywhere and I want to use it over local network
+			secure: false,
 		},
 		dir: "./sessions",
 	});
