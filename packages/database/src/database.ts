@@ -4,7 +4,7 @@ import { createClient } from "@libsql/client";
 import { sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/libsql";
 import { migrate } from "drizzle-orm/libsql/migrator";
-import { Config, Context, Data, Effect, Exit, Layer } from "effect";
+import { Config, Context, Data, Effect, Layer } from "effect";
 
 import { cvr, replicacheClient, replicacheClientGroup, todo } from "#src/schema.js";
 
@@ -67,7 +67,8 @@ export class TransactionDatabase extends Context.Tag("@repo/database#Transaction
 	static readonly provideTransaction = <A, E, R>(self: Effect.Effect<A, E, R>) => {
 		return Effect.gen(function* () {
 			const database = yield* Database;
-			const transaction = Promise.withResolvers();
+			// eslint-disable-next-line @typescript-eslint/no-invalid-void-type -- this is correct here, I'm not sure why TSEslint throws error
+			const transaction = Promise.withResolvers<void>();
 
 			return yield* Effect.acquireUseRelease(
 				Effect.gen(function* () {
@@ -94,15 +95,8 @@ export class TransactionDatabase extends Context.Tag("@repo/database#Transaction
 						Effect.provideService(TransactionDatabase, database),
 					);
 				},
-				(_, exit) => {
-					Exit.match(exit, {
-						onFailure: (value) => {
-							transaction.reject(value);
-						},
-						onSuccess: (value) => {
-							transaction.resolve(value);
-						},
-					});
+				() => {
+					transaction.resolve();
 
 					return Effect.tryPromise(async () => {
 						return transaction.promise;
