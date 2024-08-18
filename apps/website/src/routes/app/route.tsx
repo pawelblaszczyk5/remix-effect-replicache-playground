@@ -1,6 +1,6 @@
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { Effect } from "effect";
-import { Suspense, useSyncExternalStore } from "react";
+import { startTransition, useEffect, useState } from "react";
 
 import { Redirect } from "@repo/effect-errors";
 import { defineEffectLoader } from "@repo/effect-runtime";
@@ -22,40 +22,27 @@ export const loader = defineEffectLoader(
 	}),
 );
 
-const callback = () => {
-	// eslint-disable-next-line @typescript-eslint/no-empty-function -- unneeded callback
-	return () => {};
-};
-
-const useIsHydrated = () => {
-	return useSyncExternalStore(
-		callback,
-		() => {
-			return true;
-		},
-		() => {
-			return false;
-		},
-	);
-};
-
 const Route = () => {
 	const { user } = useLoaderData<typeof loader>();
 
-	// NOTE I'm not really satisfied by this, I'll need to come up with something better in the final implementation
-	const isHydrated = useIsHydrated();
+	// TODO [2024-08-31] use useSyncExternalStore for this so it's not starting with false on CSR
+	const [isHydrated, setIsHydrated] = useState(false);
+
+	useEffect(() => {
+		startTransition(() => {
+			setIsHydrated(true);
+		});
+	}, []);
 
 	if (!isHydrated) {
 		return <h1>Loading...</h1>;
 	}
 
 	return (
-		<Suspense fallback={<h1>Loading...</h1>}>
-			<ReplicacheProvider userId={user}>
-				<title>App</title>
-				<Outlet />
-			</ReplicacheProvider>
-		</Suspense>
+		<ReplicacheProvider userId={user}>
+			<title>App</title>
+			<Outlet />
+		</ReplicacheProvider>
 	);
 };
 
