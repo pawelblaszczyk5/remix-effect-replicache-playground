@@ -1,11 +1,12 @@
 import type { Client } from "@libsql/client";
 
 import { createClient } from "@libsql/client";
+import { sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/libsql";
 import { migrate } from "drizzle-orm/libsql/migrator";
 import { Config, Context, Data, Effect, Layer } from "effect";
 
-import { entries } from "#src/schema.js";
+import { cvr, replicacheClient, replicacheClientGroup, todo } from "#src/schema.js";
 
 class DatabaseMigrationError extends Data.TaggedClass("DatabaseMigrationError") {}
 
@@ -18,7 +19,7 @@ const makeTursoClientLive = ({ url }: { url: string }) => {
 
 const makeDatabaseLive = (client: Client) => {
 	const database = drizzle(client, {
-		schema: { entries },
+		schema: { cvr, replicacheClient, replicacheClientGroup, todo },
 	});
 
 	return database;
@@ -37,6 +38,10 @@ export class Database extends Context.Tag("@repo/database#Database")<Database, R
 
 			const database = makeDatabaseLive(client);
 
+			yield* Effect.tryPromise(() => {
+				return database.run(sql`PRAGMA journal_mode = WAL;`);
+			});
+
 			yield* Effect.tryPromise({
 				catch: () => {
 					return new DatabaseMigrationError();
@@ -52,3 +57,5 @@ export class Database extends Context.Tag("@repo/database#Database")<Database, R
 		}),
 	);
 }
+
+export * from "drizzle-orm/sql";
