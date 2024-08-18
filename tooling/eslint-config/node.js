@@ -11,18 +11,27 @@ export default tseslint.config(n.configs["flat/recommended"], {
 			"error",
 			{
 				ignores: [],
-				version: ">=22.5.1",
+			},
+		],
+		"n/no-unsupported-features/es-syntax": [
+			"error",
+			{
+				ignores: ["promise-withresolvers"],
 			},
 		],
 		"n/no-unsupported-features/node-builtins": [
 			"error",
 			{
 				ignores: [],
-				version: ">=22.5.1",
 			},
 		],
 		"n/prefer-global/buffer": "error",
 		"n/prefer-promises/dns": "error",
 		"n/prefer-promises/fs": "error",
+	},
+	settings: {
+		node: {
+			version: "22.5.1",
+		},
 	},
 });
