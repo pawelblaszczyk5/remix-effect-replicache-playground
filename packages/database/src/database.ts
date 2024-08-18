@@ -70,6 +70,7 @@ export class TransactionDatabase extends Context.Tag("@repo/database#Transaction
 			// eslint-disable-next-line @typescript-eslint/no-invalid-void-type -- this is correct here, I'm not sure why TSEslint throws error
 			const transaction = Promise.withResolvers<void>();
 
+			// NOTE maybe use scoped instead of this mechanism
 			return yield* Effect.acquireUseRelease(
 				Effect.gen(function* () {
 					const databaseAcquire = Promise.withResolvers<TransactionDatabaseInstance>();
