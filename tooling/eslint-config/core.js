@@ -219,7 +219,7 @@ export default tseslint.config(
 			],
 			"@typescript-eslint/no-useless-empty-export": "error",
 			"@typescript-eslint/promise-function-async": "error",
-			"@typescript-eslint/restrict-template-expressions": ["error", { allowNumber: true }],
+			"@typescript-eslint/restrict-template-expressions": "error",
 			"@typescript-eslint/require-await": "off",
 		},
 	},

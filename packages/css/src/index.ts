@@ -12,7 +12,7 @@ const stringifyValue = (propertyName: string, value: unknown) => {
 			return value;
 		}
 		case "number": {
-			return `${value}${isUnitlessNumber(propertyName) ? "" : "px"}`;
+			return `${value.toString()}${isUnitlessNumber(propertyName) ? "" : "px"}`;
 		}
 		default: {
 			return null;
