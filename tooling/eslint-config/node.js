@@ -32,7 +32,7 @@ export default tseslint.config(n.configs["flat/recommended"], {
 	},
 	settings: {
 		node: {
-			version: "22.5.1",
+			version: "22.6.0",
 		},
 	},
 });
