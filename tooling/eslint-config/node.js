@@ -16,6 +16,7 @@ export default tseslint.config(n.configs["flat/recommended"], {
 		"n/no-unsupported-features/es-syntax": [
 			"error",
 			{
+				/* cspell:disable-next-line */
 				ignores: ["promise-withresolvers"],
 			},
 		],
