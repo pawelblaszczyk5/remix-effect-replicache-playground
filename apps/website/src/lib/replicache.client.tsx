@@ -51,6 +51,7 @@ const createReplicacheInstance = (userId: string) => {
 			},
 		},
 		name: userId,
+		pushURL: "/api/push",
 	});
 
 	return replicache;
