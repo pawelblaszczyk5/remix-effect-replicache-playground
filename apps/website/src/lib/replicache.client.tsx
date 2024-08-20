@@ -40,7 +40,6 @@ const createReplicacheInstance = (userId: string) => {
 			},
 		},
 		name: userId,
-		pullInterval: 10 * 1_000,
 		pullURL: "/api/pull",
 		pushURL: "/api/push",
 	});
