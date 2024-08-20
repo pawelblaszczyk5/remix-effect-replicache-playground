@@ -1,7 +1,8 @@
-import { useId } from "react";
+import { useEffect, useId } from "react";
 
 import type { Todo } from "@repo/mutators-types";
 
+import { useReplicache } from "#src/lib/replicache.client.js";
 import { useCreateTodo, useCurrentUser, useDeleteTodo, useTodos, useUpdateTodoCompletion } from "#src/lib/state.js";
 
 const TodoItem = ({ item }: { readonly item: Todo }) => {
@@ -61,6 +62,25 @@ const TodoForm = () => {
 };
 
 const Route = () => {
+	const replicacheClient = useReplicache();
+
+	useEffect(() => {
+		const controller = new AbortController();
+		const eventSource = new EventSource("/api/poke-events");
+
+		eventSource.addEventListener(
+			"update",
+			() => {
+				void replicacheClient.pull();
+			},
+			{ signal: controller.signal },
+		);
+
+		return () => {
+			controller.abort();
+			eventSource.close();
+		};
+	}, [replicacheClient]);
 	const data = useTodos();
 
 	return (

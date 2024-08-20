@@ -75,12 +75,18 @@ export const ReplicacheProvider = ({ children, userId }: { readonly children: Re
 
 const EMPTY_DATA_SYMBOL = Symbol("EMPTY_DATA");
 
-export const useReplicacheData = <T,>(readFunction: (tx: ReadTransaction) => Promise<T>) => {
+export const useReplicache = () => {
 	const replicacheClient = useContext(ReplicacheContext);
 
 	if (!replicacheClient) {
-		throw new Error("Lorem Ipsum");
+		throw new Error("This hook must be used under replicache provider");
 	}
+
+	return replicacheClient;
+};
+
+export const useReplicacheData = <T,>(readFunction: (tx: ReadTransaction) => Promise<T>) => {
+	const replicacheClient = useReplicache();
 
 	// eslint-disable-next-line react/hook-use-state -- I want this
 	const [initialDataPromise] = useState(async () => {
@@ -107,11 +113,7 @@ export const useReplicacheData = <T,>(readFunction: (tx: ReadTransaction) => Pro
 };
 
 export const useReplicacheMutation = () => {
-	const replicacheClient = useContext(ReplicacheContext);
-
-	if (!replicacheClient) {
-		throw new Error("Lorem Ipsum");
-	}
+	const replicacheClient = useReplicache();
 
 	return replicacheClient.mutate;
 };

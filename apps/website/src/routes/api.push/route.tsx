@@ -10,6 +10,8 @@ import type { CreateTodoData, DeleteTodoData, UpdateTodoCompletionData } from "@
 import { RemixRequest } from "@repo/request-context";
 import { UserService } from "@repo/user-service";
 
+import { sendGlobalUpdate } from "#src/lib/events.server.js";
+
 const processMutation = ({
 	clientGroupId,
 	mutation,
@@ -181,6 +183,8 @@ export const action = defineEffectAction(
 				return processMutation({ clientGroupId: pushRequest.clientGroupID, mutation, user });
 			}),
 		);
+
+		sendGlobalUpdate();
 
 		return json(null) as never;
 	}),
