@@ -1,6 +1,6 @@
 import { useId } from "react";
 
-import type { Todo } from "#src/lib/replicache.client.js";
+import type { Todo } from "@repo/mutators-types";
 
 import { useCreateTodo, useCurrentUser, useDeleteTodo, useTodos, useUpdateTodoCompletion } from "#src/lib/state.js";
 

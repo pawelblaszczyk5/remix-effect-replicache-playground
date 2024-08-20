@@ -5,24 +5,13 @@ import { createContext, use, useContext, useEffect, useState } from "react";
 import { Replicache } from "replicache";
 
 import { invariant } from "@repo/invariant";
-
-export type Todo = {
-	createdAt: number;
-	id: string;
-	isCompleted: boolean;
-	isPrivate: boolean;
-	owner: string;
-	text: string;
-};
+import type { CreateTodoData, DeleteTodoData, Todo, UpdateTodoCompletionData } from "@repo/mutators-types";
 
 const createReplicacheInstance = (userId: string) => {
 	const replicache = new Replicache({
 		licenseKey: import.meta.env["VITE_REPLICACHE_LICENSE_KEY"] as string,
 		mutators: {
-			createTodo: async (
-				tx: WriteTransaction,
-				data: Pick<Todo, "createdAt" | "id" | "isPrivate" | "owner" | "text">,
-			) => {
+			createTodo: async (tx: WriteTransaction, data: CreateTodoData) => {
 				const todo = {
 					...data,
 					isCompleted: false,
@@ -30,14 +19,14 @@ const createReplicacheInstance = (userId: string) => {
 
 				await tx.set(`todo/${data.id}`, todo);
 			},
-			deleteTodo: async (tx: WriteTransaction, id: Todo["id"]) => {
+			deleteTodo: async (tx: WriteTransaction, id: DeleteTodoData) => {
 				const todo = await tx.get<Todo>(`todo/${id}`);
 
 				invariant(todo && todo.owner === userId);
 
 				await tx.del(`todo/${id}`);
 			},
-			updateTodoCompletion: async (tx: WriteTransaction, data: Pick<Todo, "id" | "isCompleted">) => {
+			updateTodoCompletion: async (tx: WriteTransaction, data: UpdateTodoCompletionData) => {
 				const todo = await tx.get<Todo>(`todo/${data.id}`);
 
 				invariant(todo);
@@ -51,6 +40,8 @@ const createReplicacheInstance = (userId: string) => {
 			},
 		},
 		name: userId,
+		pullInterval: 10 * 1_000,
+		pullURL: "/api/pull",
 		pushURL: "/api/push",
 	});
 

@@ -97,6 +97,9 @@ importers:
       '@repo/invariant':
         specifier: workspace:*
         version: link:../../packages/invariant
+      '@repo/mutators-types':
+        specifier: workspace:*
+        version: link:../../packages/mutators-types
       '@repo/request-context':
         specifier: workspace:*
         version: link:../../packages/request-context
@@ -303,6 +306,18 @@ importers:
         version: 5.5.4
 
   packages/invariant:
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
+
+  packages/mutators-types:
     devDependencies:
       '@repo/eslint-config':
         specifier: workspace:*

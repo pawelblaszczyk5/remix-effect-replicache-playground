@@ -31,6 +31,7 @@
 		"@repo/effect-runtime": "workspace:*",
 		"@repo/id": "workspace:*",
 		"@repo/invariant": "workspace:*",
+		"@repo/mutators-types": "workspace:*",
 		"@repo/request-context": "workspace:*",
 		"@repo/user-service": "workspace:*",
 		"effect": "catalog:",

@@ -21,6 +21,7 @@ CREATE TABLE `todo` (
 	`id` text PRIMARY KEY NOT NULL,
 	`is_completed` integer NOT NULL,
 	`is_private` integer NOT NULL,
+	`owner` text NOT NULL,
 	`text` text NOT NULL,
 	`version` integer NOT NULL
 );

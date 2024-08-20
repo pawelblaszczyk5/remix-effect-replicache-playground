@@ -2,8 +2,7 @@ import { useMatches } from "@remix-run/react";
 
 import { generateId } from "@repo/id";
 import { invariant } from "@repo/invariant";
-
-import type { Todo } from "#src/lib/replicache.client.js";
+import type { Todo } from "@repo/mutators-types";
 
 import { useReplicacheData, useReplicacheMutation } from "#src/lib/replicache.client.js";
 

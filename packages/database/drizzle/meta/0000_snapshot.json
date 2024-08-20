@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "57d31fdc-15ea-443f-b271-c7b95e0a4f69",
+  "id": "7e7556d7-8c87-4e93-8d67-64486ba2e8c0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "cvr": {
@@ -121,6 +121,13 @@
         "is_private": {
           "name": "is_private",
           "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "owner": {
+          "name": "owner",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
