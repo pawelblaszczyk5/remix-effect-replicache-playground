@@ -50,7 +50,7 @@
 		"@types/react-dom": "catalog:",
 		"babel-plugin-react-compiler": "0.0.0-experimental-f1f288c-20240725",
 		"typescript": "catalog:",
-		"vite": "^5.4.1",
+		"vite": "^5.4.2",
 		"vite-plugin-babel": "^1.2.0"
 	}
 }
