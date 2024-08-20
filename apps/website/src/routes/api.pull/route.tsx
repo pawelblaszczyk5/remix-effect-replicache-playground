@@ -118,8 +118,6 @@ const processPull = ({
 
 		const cvrDiff = diffCvr(baseCvr, nextCvr);
 
-		yield* Effect.log(cvrDiff);
-
 		if (cvrDiff.clients.length === 0 && cvrDiff.entities.length === 0) {
 			return null;
 		}
@@ -250,8 +248,8 @@ export const action = defineEffectAction(
 
 		result.cvrDiff.entities.forEach(([idWithPrefix, operation]) => {
 			if (operation === "del") {
-        response.patch.push({ key: idWithPrefix, op: "del" });
-        return;
+				response.patch.push({ key: idWithPrefix, op: "del" });
+				return;
 			}
 
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- I'll need to do it better in final version
