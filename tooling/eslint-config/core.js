@@ -220,7 +220,6 @@ export default tseslint.config(
 			"@typescript-eslint/no-useless-empty-export": "error",
 			"@typescript-eslint/promise-function-async": "error",
 			"@typescript-eslint/restrict-template-expressions": "error",
-			"@typescript-eslint/require-await": "off",
 		},
 	},
 	{
@@ -239,7 +238,7 @@ export default tseslint.config(
 			"eslint-comments": eslintComments,
 		},
 		rules: {
-			"eslint-comments/disable-enable-pair": ["error", { allowWholeFile: true }],
+			"eslint-comments/disable-enable-pair": "error",
 			"eslint-comments/no-unused-disable": "error",
 			"eslint-comments/require-description": "error",
 		},
@@ -306,7 +305,6 @@ export default tseslint.config(
 	{
 		name: "unicorn overrides",
 		rules: {
-			"unicorn/consistent-function-scoping": "off",
 			"unicorn/expiring-todo-comments": [
 				"error",
 				{
