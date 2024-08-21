@@ -44,7 +44,7 @@
 		"eslint-plugin-react": "^7.35.0",
 		"eslint-plugin-react-compiler": "0.0.0-experimental-eeb1b2a-20240818",
 		"eslint-plugin-react-hooks": "^4.6.2",
-		"eslint-plugin-react-refresh": "^0.4.9",
+		"eslint-plugin-react-refresh": "^0.4.10",
 		"eslint-plugin-regexp": "^2.6.0",
 		"eslint-plugin-unicorn": "^55.0.0",
 		"eslint-plugin-workspaces": "^0.10.1",
