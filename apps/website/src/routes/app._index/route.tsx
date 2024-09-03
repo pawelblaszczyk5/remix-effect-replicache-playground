@@ -85,7 +85,13 @@ const Route = () => {
 	}, [replicacheClient]);
 
 	return (
-		<div style={css({ "--background": "var(--color_blue12)", })}>
+		<div
+			style={css({
+				"--{&:hover}_p": "var(--fluid-p_min-max)",
+				"--fluid-p-max": 30,
+				"--fluid-p-min": 1,
+			})}
+		>
 			<h1>All todo items</h1>
 			<TodoForm />
 			<ul>

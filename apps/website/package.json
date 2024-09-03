@@ -12,9 +12,8 @@
 		"#src/*": "./src/*"
 	},
 	"scripts": {
-		"test-tokenami": "tokenami --output ./public/styles.css",
 		"build": "remix vite:build",
-		"dev": "remix vite:dev",
+		"dev": "tokenami --output ./src/styles.css --watch & remix vite:dev",
 		"lint": "eslint",
 		"lint:fix": "eslint --fix",
 		"preview": "remix-serve build/server/index.js",

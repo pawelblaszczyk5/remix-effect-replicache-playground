@@ -173,24 +173,39 @@
 @layer tokenami {
   :root {
     --_grid: .25rem;
-    --color_blue12: #113264;
   }
 
-  [data-theme="light"] {
-    --color_blue12: #113264;
-  }
-
-  [data-theme="dark"] {
-    --color_blue12: #c2e6ff;
+  :root, :root [style] {
+    --fluid-p_min-max: clamp(calc(var(---fluid-p-min) * 1rem), calc((var(---fluid-p-scope) * 100vw)  + (var(---fluid-p-intercept) * 1rem)), calc(var(---fluid-p-max) * 1rem));
+    ---fluid-p-min: var(--_fluid-p-min) / 4;
+    ---fluid-p-max: var(--_fluid-p-max) / 4;
+    ---fluid-p-scope: (var(---fluid-p-max)  - var(---fluid-p-min)) / 56;
+    ---fluid-p-intercept: calc(var(---fluid-p-min)  - (var(---fluid-p-scope) * 40));
   }
 
   [style] {
-    --background: initial;
+    --\{\&\;hover\}: initial;
+    --\{\&\;hover\}_padding: initial;
+    --fluid-p-max: initial;
+    --fluid-p-min: initial;
   }
 
   @layer tk1 {
     [style] {
-      background: var(--background, revert-layer);
+      --_fluid-p-max: var(--fluid-p-max, revert-layer);
+      --_fluid-p-min: var(--fluid-p-min, revert-layer);
     }
+  }
+
+  @layer tks1 {
+    [style] {
+      padding: var(--_17hdvvv, revert-layer);
+      --_17hdvvv: var(--\{\&\;hover\}) var(--_1gjvpm1, var(--\{\&\;hover\}_padding));
+      --_1gjvpm1: var(--\{\&\;hover\}_padding__calc) calc(var(--\{\&\;hover\}_padding) * var(--_grid));
+    }
+  }
+
+  [style]:hover {
+    --\{\&\;hover\}: ;
   }
 }

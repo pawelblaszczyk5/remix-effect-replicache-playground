@@ -3,7 +3,8 @@ import type { LinksFunction } from "@remix-run/node";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 
 import { styleSheet } from "@repo/css";
-import cssResetStylesheet from "@repo/css-reset?url";
+
+import cssResetStylesheet from "#src/styles.css?url";
 
 export const links = (() => {
 	return [
