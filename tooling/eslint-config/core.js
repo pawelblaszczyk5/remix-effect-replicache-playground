@@ -285,7 +285,6 @@ export default tseslint.config(
 			"import-x/first": "error",
 			"import-x/newline-after-import": "error",
 			"import-x/no-cycle": "error",
-			"import-x/no-deprecated": "error",
 			"import-x/no-duplicates": "error",
 			"import-x/no-extraneous-dependencies": "error",
 			"import-x/no-mutable-exports": "error",
@@ -414,7 +413,6 @@ export default tseslint.config(
 	},
 	regexpPlugin.configs["flat/recommended"],
 	promise.configs["flat/recommended"],
-	...fixupConfigRules(compat.extends("plugin:deprecation/recommended")),
 	{
 		name: "workspaces",
 		plugins: {
