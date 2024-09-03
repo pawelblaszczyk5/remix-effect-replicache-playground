@@ -15,7 +15,7 @@ env:
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
 permissions:
-  contents: read
+  contents: none
 
 jobs:
   build:
