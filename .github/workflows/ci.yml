@@ -14,13 +14,17 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
+permissions:
+  contents: read
+
 jobs:
   build:
     name: 🛠️ Build
+    timeout-minutes: 3
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # pin@v4
 
       - name: Setup
         uses: ./.github/composite-actions/setup
@@ -30,10 +34,11 @@ jobs:
 
   lint:
     name: 🔬 Lint
+    timeout-minutes: 3
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # pin@v4
 
       - name: Setup
         uses: ./.github/composite-actions/setup
@@ -43,10 +48,11 @@ jobs:
 
   format:
     name: 🔍 Format
+    timeout-minutes: 1
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # pin@v4
 
       - name: Setup
         uses: ./.github/composite-actions/setup
@@ -56,10 +62,11 @@ jobs:
 
   spellcheck:
     name: ❌ Spellcheck
+    timeout-minutes: 1
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # pin@v4
 
       - name: Setup
         uses: ./.github/composite-actions/setup
@@ -69,10 +76,11 @@ jobs:
 
   typecheck:
     name: 🌀 Typecheck
+    timeout-minutes: 3
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # pin@v4
 
       - name: Setup
         uses: ./.github/composite-actions/setup
@@ -82,10 +90,11 @@ jobs:
 
   sort-package-json:
     name: 📑 package.json sorter
+    timeout-minutes: 1
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # pin@v4.1.1
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # pin@v4
 
       - name: Setup
         uses: ./.github/composite-actions/setup
