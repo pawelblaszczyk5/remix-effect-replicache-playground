@@ -197,7 +197,7 @@ export default tseslint.config(
 				{
 					patterns: [
 						{
-							group: ["^.*"],
+							regex: "^\\.",
 							message: "Don't use relative imports",
 						},
 					],

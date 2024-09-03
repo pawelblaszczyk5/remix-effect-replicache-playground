@@ -3,7 +3,8 @@
 	"compilerOptions": {
 		"lib": ["ESNext", "DOM", "DOM.Iterable"],
 		"jsx": "preserve",
-		"types": ["@remix-run/node", "node", "vite/client", "@remix-run/react/future/single-fetch.d.ts"]
+		"types": ["@remix-run/node", "node", "vite/client", "@remix-run/react/future/single-fetch.d.ts"],
+		"plugins": [{ "name": "@tokenami/ts-plugin" }]
 	},
-	"include": ["src"]
+	"include": ["src", ".tokenami/tokenami.config.ts", ".tokenami/tokenami.env.d.ts"]
 }

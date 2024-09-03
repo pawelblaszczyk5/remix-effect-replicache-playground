@@ -13,7 +13,7 @@ export default [
 	...core,
 	...react,
 	{
-		files: ["vite.config.ts"],
+		files: ["vite.config.ts", ".tokenami/tokenami.config.ts"],
 		rules: {
 			"import-x/no-default-export": "off",
 		},

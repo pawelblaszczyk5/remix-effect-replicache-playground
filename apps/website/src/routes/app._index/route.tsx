@@ -2,6 +2,7 @@ import { useEffect, useId } from "react";
 
 import type { Todo } from "@repo/mutators-types";
 
+import { css } from "#src/lib/css.js";
 import { useReplicache } from "#src/lib/replicache.client.js";
 import { useCreateTodo, useCurrentUser, useDeleteTodo, useTodos, useUpdateTodoCompletion } from "#src/lib/state.js";
 
@@ -63,6 +64,7 @@ const TodoForm = () => {
 
 const Route = () => {
 	const replicacheClient = useReplicache();
+	const data = useTodos();
 
 	useEffect(() => {
 		const controller = new AbortController();
@@ -81,10 +83,9 @@ const Route = () => {
 			eventSource.close();
 		};
 	}, [replicacheClient]);
-	const data = useTodos();
 
 	return (
-		<div style={{ alignItems: "center", display: "flex", flexDirection: "column", gap: 16 }}>
+		<div style={css({ "--background": "var(--color_blue12)", })}>
 			<h1>All todo items</h1>
 			<TodoForm />
 			<ul>

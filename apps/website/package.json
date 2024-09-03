@@ -12,6 +12,7 @@
 		"#src/*": "./src/*"
 	},
 	"scripts": {
+		"test-tokenami": "tokenami --output ./public/styles.css",
 		"build": "remix vite:build",
 		"dev": "remix vite:dev",
 		"lint": "eslint",
@@ -34,6 +35,8 @@
 		"@repo/mutators-types": "workspace:*",
 		"@repo/request-context": "workspace:*",
 		"@repo/user-service": "workspace:*",
+		"@tokenami/css": "^0.0.64",
+		"@tokenami/ds": "^0.0.64",
 		"effect": "catalog:",
 		"isbot": "^5.1.17",
 		"react": "catalog:",
@@ -46,6 +49,8 @@
 		"@remix-run/dev": "catalog:",
 		"@repo/eslint-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
+		"@tokenami/dev": "^0.0.64",
+		"@tokenami/ts-plugin": "^0.0.64",
 		"@types/node": "catalog:",
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
