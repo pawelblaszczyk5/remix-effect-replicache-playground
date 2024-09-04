@@ -2,16 +2,15 @@ packages:
   - apps/*
   - packages/*
   - tooling/*
-
 catalog:
-  "@remix-run/dev": ^2.11.2
-  "@remix-run/node": ^2.11.2
-  "@remix-run/react": ^2.11.2
-  "@remix-run/serve": ^2.11.2
-  "@types/node": ^22.5.2
-  effect: ^3.7.0
+  '@remix-run/dev': ^2.11.2
+  '@remix-run/node': ^2.11.2
+  '@remix-run/react': ^2.11.2
+  '@remix-run/serve': ^2.11.2
+  '@types/node': ^22.5.3
+  effect: ^3.7.2
   react: 19.0.0-rc-6ebfd5b0-20240818
   react-dom: 19.0.0-rc-6ebfd5b0-20240818
-  "@types/react": npm:types-react@19.0.0-rc.1
-  "@types/react-dom": npm:types-react-dom@19.0.0-rc.1
+  '@types/react': npm:types-react@19.0.0-rc.1
+  '@types/react-dom': npm:types-react-dom@19.0.0-rc.1
   typescript: ^5.5.4
