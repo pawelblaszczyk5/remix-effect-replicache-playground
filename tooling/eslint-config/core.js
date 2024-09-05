@@ -365,6 +365,8 @@ export default tseslint.config(
 			"unicorn/require-post-message-target-origin": "error",
 			"unicorn/throw-new-error": "off",
 			"unicorn/no-array-callback-reference": "off",
+			"unicorn/no-array-method-this-argument": "off",
+			"unicorn/prefer-native-coercion-functions": "off",
 		},
 	},
 	perfectionist.configs["recommended-natural"],
