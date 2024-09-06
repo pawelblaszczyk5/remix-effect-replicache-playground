@@ -8,6 +8,7 @@
 		"buildinfo",
 		"compat",
 		"focusable",
+		"hono",
 		"isbot",
 		"linebreak",
 		"millis",
