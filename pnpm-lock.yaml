@@ -216,9 +216,6 @@ importers:
       typescript:
         specifier: 'catalog:'
         version: 5.5.4
-      vite:
-        specifier: ^5.4.3
-        version: 5.4.3(@types/node@22.5.3)
 
   packages/effect-errors:
     dependencies:
