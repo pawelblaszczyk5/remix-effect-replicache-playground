@@ -1,15 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
 	"version": "0.2",
-	"ignorePaths": [
-		"pnpm-lock.yaml",
-		"**.svg",
-		".git/",
-		".gitignore",
-		".vscode/",
-		"./patches/",
-		"./packages/database/drizzle/"
-	],
+	"ignorePaths": ["pnpm-lock.yaml", "**.svg", ".git/", ".gitignore", ".vscode/", "./patches/"],
 	"dictionaries": ["lorem-ipsum"],
 	"useGitignore": true,
 	"words": [
@@ -32,7 +24,8 @@
 		"turso",
 		"typecheck",
 		"typedefs",
-		"unitless"
+		"unitless",
+		"upsert"
 	],
 	"enableGlobDot": true,
 	"enableFiletypes": ["dockerfile", "github-actions-workflow"]

@@ -13,6 +13,7 @@ export default defineConfig({
 				v3_relativeSplatPath: true,
 				v3_throwAbortReason: true,
 			},
+			serverModuleFormat: "esm",
 		}),
 		babel({
 			babelConfig: {
@@ -23,6 +24,6 @@ export default defineConfig({
 		}),
 	],
 	ssr: {
-		external: ["@libsql/client"],
+		external: ["better-sqlite3"],
 	},
 });

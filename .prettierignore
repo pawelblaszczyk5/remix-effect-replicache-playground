@@ -3,5 +3,3 @@ pnpm-lock.yaml
 apps/website/.next/
 apps/website/next-env.d.ts
 apps/website/tooling-dist/
-
-packages/database/drizzle/

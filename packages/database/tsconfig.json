@@ -1,11 +1,8 @@
 {
-	"files": [],
-	"references": [
-		{
-			"path": "./tsconfig.source.json"
-		},
-		{
-			"path": "./tsconfig.tooling.json"
-		}
-	]
+	"extends": "@repo/typescript-config/no-build",
+	"compilerOptions": {
+		"lib": ["esnext"],
+		"types": ["node", "vite/client"]
+	},
+	"include": ["src"]
 }

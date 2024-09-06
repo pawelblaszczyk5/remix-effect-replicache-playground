@@ -1,7 +1,0 @@
-{
-	"extends": "@repo/typescript-config/no-build",
-	"compilerOptions": {
-		"lib": ["ESNext"]
-	},
-	"include": ["drizzle.config.ts"]
-}

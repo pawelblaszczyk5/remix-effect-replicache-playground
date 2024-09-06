@@ -13,7 +13,13 @@ export default [
 	...core,
 	...node,
 	{
-		files: ["drizzle.config.ts"],
+		files: ["src/index.ts"],
+		rules: {
+			"canonical/filename-no-index": "off",
+		},
+	},
+	{
+		files: ["src/lib/migrations/**"],
 		rules: {
 			"import-x/no-default-export": "off",
 		},

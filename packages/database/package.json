@@ -12,34 +12,26 @@
 	"imports": {
 		"#src/*": "./src/*"
 	},
-	"exports": {
-		".": {
-			"types": "./src/database.ts",
-			"import": "./src/database.ts"
-		},
-		"./schema": {
-			"types": "./src/schema.ts",
-			"import": "./src/schema.ts"
-		}
-	},
+	"main": "./src/index.ts",
+	"types": "./src/index.ts",
 	"scripts": {
-		"db:generate": "drizzle-kit generate",
-		"db:push": "drizzle-kit push",
-		"db:studio": "drizzle-kit studio",
 		"lint": "eslint",
 		"lint:fix": "eslint --fix",
 		"typecheck": "tsc --build"
 	},
 	"dependencies": {
-		"@libsql/client": "^0.10.0",
-		"drizzle-orm": "^0.33.0",
+		"@effect/experimental": "^0.24.2",
+		"@effect/platform-node": "^0.58.2",
+		"@effect/schema": "^0.72.2",
+		"@effect/sql": "^0.10.2",
+		"@effect/sql-sqlite-node": "^0.10.2",
 		"effect": "catalog:"
 	},
 	"devDependencies": {
 		"@repo/eslint-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
 		"@types/node": "catalog:",
-		"drizzle-kit": "^0.24.2",
-		"typescript": "catalog:"
+		"typescript": "catalog:",
+		"vite": "^5.4.3"
 	}
 }

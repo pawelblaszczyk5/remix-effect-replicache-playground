@@ -1,11 +1,20 @@
-import type { PullRequest, PullRequestV1, PullResponseOKV1 } from "replicache";
+import type { Cookie, PullRequest, PullRequestV1, PullResponseOKV1 } from "replicache";
 
 import { json } from "@remix-run/react";
-import { Effect } from "effect";
+import { Effect, Option } from "effect";
 
-import { Database, eq, inArray, or, TransactionDatabase } from "@repo/database";
-import { cvr, replicacheClient, replicacheClientGroup, todo } from "@repo/database/schema";
-import type { Cvr } from "@repo/database/schema";
+import {
+	Cvr,
+	findAllChangedTodos,
+	findAllReplicacheClientsByClientGroup,
+	findAllTodosForCvr,
+	findCvrById,
+	findReplicacheClientGroupById,
+	insertCvr,
+	ReplicacheClientGroup,
+	SqliteClient,
+	upsertReplicacheClientGroup,
+} from "@repo/database";
 import { defineEffectAction } from "@repo/effect-runtime";
 import { generateId } from "@repo/id";
 import { RemixRequest } from "@repo/request-context";
@@ -67,52 +76,33 @@ const processPull = ({
 	user: string;
 }) => {
 	return Effect.gen(function* () {
-		const database = yield* TransactionDatabase;
-
 		const baseCvr = previousCvr ?? { entities: {}, id: "", lastMutationIds: {} };
 
-		const clientGroup = yield* Effect.tryPromise(async () => {
-			return database
-				.select()
-				.from(replicacheClientGroup)
-				.where(eq(replicacheClientGroup.id, pullRequest.clientGroupID))
-				.get();
-		}).pipe(
-			Effect.map((clientGroup) => {
-				return clientGroup ?? { cvrVersion: 0, id: pullRequest.clientGroupID, userId: user };
-			}),
-		);
+		const clientGroup = Option.getOrElse(yield* findReplicacheClientGroupById(pullRequest.clientGroupID), () => {
+			return ReplicacheClientGroup.make({ cvrVersion: 0, id: pullRequest.clientGroupID, userId: user });
+		});
 
 		if (clientGroup.userId !== user) {
 			yield* Effect.fail("UNAUTHORIZED");
 		}
 
-		const allTodos = yield* Effect.tryPromise(async () => {
-			return database
-				.select({ id: todo.id, version: todo.version })
-				.from(todo)
-				.where(or(eq(todo.isPrivate, false), eq(todo.owner, user)))
-				.all();
-		});
+		const allTodos = yield* findAllTodosForCvr(user);
 
-		const clients = yield* Effect.tryPromise(async () => {
-			return database
-				.select()
-				.from(replicacheClient)
-				.where(eq(replicacheClient.clientGroupId, pullRequest.clientGroupID));
-		});
+		const clients = yield* findAllReplicacheClientsByClientGroup(pullRequest.clientGroupID);
 
-		const nextCvr: Cvr = {
+		const nextCvr = Cvr.make({
 			entities: {},
 			id: generateId(),
 			lastMutationIds: {},
-		};
+		});
 
 		allTodos.forEach((todo) => {
+			// @ts-expect-error -- it's readonly in theory
 			nextCvr.entities[`todo/${todo.id}`] = todo.version;
 		});
 
 		clients.forEach((client) => {
+			// @ts-expect-error -- it's readonly in theory
 			nextCvr.lastMutationIds[client.id] = client.lastMutationId;
 		});
 
@@ -133,20 +123,8 @@ const processPull = ({
 			return id;
 		});
 
-		const changedEntities = yield* Effect.tryPromise(async () => {
-			return database
-				.select({
-					createdAt: todo.createdAt,
-					id: todo.id,
-					isCompleted: todo.isCompleted,
-					isPrivate: todo.isPrivate,
-					owner: todo.owner,
-					text: todo.text,
-				})
-				.from(todo)
-				.where(inArray(todo.id, changedTodosIds))
-				.all();
-		});
+		const changedEntities = yield* findAllChangedTodos(changedTodosIds);
+
 		const changedClients = clients.filter((client) => {
 			return cvrDiff.clients.includes(client.id);
 		});
@@ -159,19 +137,13 @@ const processPull = ({
 
 		const nextCvrVersion = Math.max(orderFromCookie ?? 0, clientGroup.cvrVersion) + 1;
 
-		yield* Effect.tryPromise(async () => {
-			const nextClientGroup = { cvrVersion: nextCvrVersion, userId: user };
-
-			return database
-				.insert(replicacheClientGroup)
-				.values({ ...nextClientGroup, id: pullRequest.clientGroupID })
-				.onConflictDoUpdate({ set: nextClientGroup, target: replicacheClientGroup.id });
+		yield* upsertReplicacheClientGroup({
+			cvrVersion: nextCvrVersion,
+			id: pullRequest.clientGroupID,
+			userId: user,
 		});
 
-		yield* Effect.tryPromise(async () => {
-			return database.insert(cvr).values(nextCvr);
-		});
-
+		yield* insertCvr(nextCvr);
 		return {
 			changedClients,
 			changedEntities,
@@ -179,13 +151,33 @@ const processPull = ({
 			nextCvr,
 			nextCvrVersion,
 		};
-	}).pipe(TransactionDatabase.provideTransaction);
+	});
+};
+
+const getPreviousCvr = (cookie: Cookie) => {
+	return Effect.gen(function* () {
+		if (typeof cookie !== "object" || cookie === null) {
+			return Option.none();
+		}
+
+		if (!("cvrId" in cookie)) {
+			return Option.none();
+		}
+
+		const cvrId = cookie["cvrId"];
+
+		if (typeof cvrId !== "string") {
+			return Option.none();
+		}
+
+		return yield* findCvrById(cvrId);
+	});
 };
 
 export const action = defineEffectAction(
 	Effect.gen(function* () {
+		const sql = yield* SqliteClient.SqliteClient;
 		const userService = yield* UserService;
-		const database = yield* Database;
 
 		const user = yield* userService.getUser();
 
@@ -202,27 +194,9 @@ export const action = defineEffectAction(
 			return yield* Effect.die("Unhandled push version");
 		}
 
-		const previousCvr = yield* Effect.tryPromise(async () => {
-			const cookie = pullRequest.cookie;
+		const previousCvr = Option.getOrUndefined(yield* getPreviousCvr(pullRequest.cookie));
 
-			if (typeof cookie !== "object" || cookie === null) {
-				return undefined;
-			}
-
-			if (!("cvrId" in cookie)) {
-				return undefined;
-			}
-
-			const cvrId = cookie["cvrId"];
-
-			if (typeof cvrId !== "string") {
-				return undefined;
-			}
-
-			return database.select().from(cvr).where(eq(cvr.id, cvrId)).get();
-		});
-
-		const result = yield* processPull({ previousCvr, pullRequest, user });
+		const result = yield* processPull({ previousCvr, pullRequest, user }).pipe(sql.withTransaction);
 
 		if (result === null) {
 			return json({
@@ -260,7 +234,7 @@ export const action = defineEffectAction(
 				return todo.id === id;
 			})!;
 
-			response.patch.push({ key: idWithPrefix, op: "put", value: todo });
+			response.patch.push({ key: idWithPrefix, op: "put", value: { ...todo, createdAt: todo.createdAt.epochMillis } });
 		});
 
 		return json(response) as never;
