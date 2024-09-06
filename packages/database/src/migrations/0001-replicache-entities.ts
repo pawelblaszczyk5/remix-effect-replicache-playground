@@ -1,7 +1,7 @@
 import { SqliteClient } from "@effect/sql-sqlite-node";
 import { Effect } from "effect";
 
-export default Effect.gen(function* () {
+export const replicacheEntitiesMigration = Effect.gen(function* () {
 	const sql = yield* SqliteClient.SqliteClient;
 
 	yield* sql`

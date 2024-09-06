@@ -1,10 +1,10 @@
-import type { ResolvedMigration } from "@effect/sql/Migrator";
-
 import { NodeContext } from "@effect/platform-node";
 import { Schema } from "@effect/schema";
 import { Model, SqlSchema } from "@effect/sql";
 import { SqliteClient, SqliteMigrator } from "@effect/sql-sqlite-node";
 import { Config, Effect, Layer, String } from "effect";
+
+import { allMigrations } from "#src/migrations/entry.js";
 
 export class Cvr extends Model.Class<Cvr>("Cvr")({
 	entities: Model.JsonFromString(
@@ -232,21 +232,9 @@ const SqliteLive = SqliteClient.layer({
 	transformResultNames: Config.succeed(String.snakeToCamel),
 });
 
-const regex = /^\.\/migrations\/(\d{4})-([a-z-]+)\.ts$/u;
-
 const MigratorLive = SqliteMigrator.layer({
 	loader: Effect.gen(function* () {
-		const allMigrations = import.meta.glob("./migrations/*.*", { eager: true, import: "default" });
-
-		const migrations = Object.entries(allMigrations).map(([path, migration]) => {
-			const [, id, name] = regex.exec(path) ?? [];
-
-			const load = Effect.succeed(migration).pipe(Effect.orDie);
-
-			return [Number(id), name, load] as ResolvedMigration;
-		}) satisfies Array<ResolvedMigration>;
-
-		return migrations;
+		return allMigrations;
 	}),
 }).pipe(Layer.provide(SqliteLive));
 

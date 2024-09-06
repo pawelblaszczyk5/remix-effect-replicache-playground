@@ -31,7 +31,6 @@
 		"@repo/eslint-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
 		"@types/node": "catalog:",
-		"typescript": "catalog:",
-		"vite": "^5.4.3"
+		"typescript": "catalog:"
 	}
 }
