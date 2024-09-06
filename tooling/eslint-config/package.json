@@ -13,9 +13,6 @@
 		"./core": {
 			"import": "./core.js"
 		},
-		"./drizzle": {
-			"import": "./drizzle.js"
-		},
 		"./node": {
 			"import": "./node.js"
 		},
@@ -31,7 +28,6 @@
 		"eslint-config-flat-gitignore": "^0.3.0",
 		"eslint-import-resolver-typescript": "^3.6.3",
 		"eslint-plugin-canonical": "^5.0.0",
-		"eslint-plugin-drizzle": "^0.2.3",
 		"eslint-plugin-eslint-comments": "^3.2.0",
 		"eslint-plugin-fp": "^2.3.0",
 		"eslint-plugin-import-x": "^4.2.1",

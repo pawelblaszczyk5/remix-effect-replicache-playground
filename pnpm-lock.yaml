@@ -402,9 +402,6 @@ importers:
       eslint-plugin-canonical:
         specifier: ^5.0.0
         version: 5.0.0(@typescript-eslint/parser@8.4.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(eslint-plugin-import-x@4.2.1(patch_hash=qettourpbwsgacy4pkbcu7sfea)(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(eslint-plugin-import@2.29.1(@typescript-eslint/parser@8.4.0(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4))(eslint-import-resolver-typescript@3.6.3)(eslint@9.9.1(jiti@1.21.6)))(eslint@9.9.1(jiti@1.21.6))(typescript@5.5.4)
-      eslint-plugin-drizzle:
-        specifier: ^0.2.3
-        version: 0.2.3(eslint@9.9.1(jiti@1.21.6))
       eslint-plugin-eslint-comments:
         specifier: ^3.2.0
         version: 3.2.0(eslint@9.9.1(jiti@1.21.6))
@@ -2638,11 +2635,6 @@ packages:
   eslint-plugin-canonical@5.0.0:
     resolution: {integrity: sha512-dx+pAsjGrnK5jLFkxCSAlNe2jUVAADDULY3kBYuIdrbYNRe168dfXHDe07i9B/45UTVIE34JlSyGa3Y1BjbOTw==}
     engines: {node: '>=18.0.0'}
-
-  eslint-plugin-drizzle@0.2.3:
-    resolution: {integrity: sha512-BO+ymHo33IUNoJlC0rbd7HP9EwwpW4VIp49R/tWQF/d2E1K2kgTf0tCXT0v9MSiBr6gGR1LtPwMLapTKEWSg9A==}
-    peerDependencies:
-      eslint: '>=8.0.0'
 
   eslint-plugin-es-x@7.8.0:
     resolution: {integrity: sha512-7Ds8+wAAoV3T+LAKeu39Y5BzXCrGKrcISfgKEqTS4BDN8SFEDQd0S43jiQ8vIa3wUKD07qitZdfzlenSi8/0qQ==}
@@ -7579,10 +7571,6 @@ snapshots:
       - eslint-plugin-import-x
       - supports-color
       - typescript
-
-  eslint-plugin-drizzle@0.2.3(eslint@9.9.1(jiti@1.21.6)):
-    dependencies:
-      eslint: 9.9.1(jiti@1.21.6)
 
   eslint-plugin-es-x@7.8.0(eslint@9.9.1(jiti@1.21.6)):
     dependencies:
