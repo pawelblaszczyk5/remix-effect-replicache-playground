@@ -19,7 +19,7 @@ export default [
 		},
 	},
 	{
-		files: ["src/lib/migrations/**"],
+		files: ["src/migrations/**"],
 		rules: {
 			"import-x/no-default-export": "off",
 		},
