@@ -227,7 +227,7 @@ export const updateTodoCompletion = SqlSchema.single({
 });
 
 const SqliteLive = SqliteClient.layer({
-	filename: Config.succeed("local/sqlite-effect.db"),
+	filename: Config.string("DATABASE_LOCAL_URL"),
 	transformQueryNames: Config.succeed(String.camelToSnake),
 	transformResultNames: Config.succeed(String.snakeToCamel),
 });
