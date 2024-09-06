@@ -8,8 +8,8 @@
 		"moduleDetection": "force",
 		"isolatedModules": true,
 		"incremental": true,
-		"module": "Preserve",
-		"target": "ESNext",
+		"module": "preserve",
+		"target": "esnext",
 		"noErrorTruncation": true,
 
 		"strict": true,

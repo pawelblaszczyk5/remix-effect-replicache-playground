@@ -1,7 +1,7 @@
 {
 	"extends": "@repo/typescript-config/no-build",
 	"compilerOptions": {
-		"lib": ["ESNext"],
+		"lib": ["esnext"],
 		"jsx": "preserve"
 	},
 	"include": ["vite.config.ts"]

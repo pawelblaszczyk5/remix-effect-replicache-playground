@@ -1,7 +1,7 @@
 {
 	"extends": "@repo/typescript-config/no-build",
 	"compilerOptions": {
-		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"lib": ["esnext", "dom", "dom.iterable"],
 		"jsx": "preserve",
 		"types": ["@remix-run/node", "node", "vite/client", "@remix-run/react/future/single-fetch.d.ts"]
 	},
