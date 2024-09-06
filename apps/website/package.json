@@ -16,13 +16,12 @@
 		"dev": "remix vite:dev",
 		"lint": "eslint",
 		"lint:fix": "eslint --fix",
-		"preview": "remix-serve build/server/index.js",
+		"preview": "NODE_ENV=production node ./build/server/index.js",
 		"typecheck": "tsc -b"
 	},
 	"dependencies": {
 		"@remix-run/node": "catalog:",
 		"@remix-run/react": "catalog:",
-		"@remix-run/serve": "catalog:",
 		"@repo/css": "workspace:*",
 		"@repo/css-reset": "workspace:*",
 		"@repo/database": "workspace:*",
@@ -35,9 +34,11 @@
 		"@repo/user-service": "workspace:*",
 		"better-sqlite3": "^11.2.1",
 		"effect": "catalog:",
+		"hono": "^4.5.11",
 		"isbot": "^5.1.17",
 		"react": "catalog:",
 		"react-dom": "catalog:",
+		"react-router-hono-server": "^0.1.0",
 		"replicache": "^15.0.1",
 		"replicache-react": "^5.0.1"
 	},
