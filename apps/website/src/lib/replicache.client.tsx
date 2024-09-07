@@ -4,8 +4,9 @@ import type { ReadTransaction, WriteTransaction } from "replicache";
 import { createContext, use, useContext, useEffect, useState } from "react";
 import { Replicache } from "replicache";
 
-import { invariant } from "@repo/invariant";
 import type { CreateTodoData, DeleteTodoData, Todo, UpdateTodoCompletionData } from "@repo/mutators-types";
+
+import { invariant } from "@repo/invariant";
 
 const createReplicacheInstance = (userId: string) => {
 	const replicache = new Replicache({

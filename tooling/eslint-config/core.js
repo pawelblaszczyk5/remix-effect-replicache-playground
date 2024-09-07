@@ -398,7 +398,7 @@ export default tseslint.config(
 							monorepo: ["@repo/**"],
 						},
 						type: {
-							monorepo: ["@repo/**"],
+							"monorepo-type": ["@repo/**"],
 						},
 					},
 				},

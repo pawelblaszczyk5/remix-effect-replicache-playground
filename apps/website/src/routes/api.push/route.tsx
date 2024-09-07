@@ -3,6 +3,8 @@ import type { MutationV1, PushRequest } from "replicache";
 import { json } from "@remix-run/react";
 import { Effect, Match, Option } from "effect";
 
+import type { CreateTodoData, DeleteTodoData, UpdateTodoCompletionData } from "@repo/mutators-types";
+
 import {
 	deleteTodo,
 	findReplicacheClientById,
@@ -16,7 +18,6 @@ import {
 	upsertReplicacheClientGroup,
 } from "@repo/database";
 import { defineEffectAction } from "@repo/effect-runtime";
-import type { CreateTodoData, DeleteTodoData, UpdateTodoCompletionData } from "@repo/mutators-types";
 import { RemixRequest } from "@repo/request-context";
 import { UserService } from "@repo/user-service";
 
