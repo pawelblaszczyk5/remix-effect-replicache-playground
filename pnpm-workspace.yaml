@@ -7,7 +7,7 @@ catalog:
   "@remix-run/dev": ^2.11.2
   "@remix-run/node": ^2.11.2
   "@remix-run/react": ^2.11.2
-  "@types/node": ^22.5.3
+  "@types/node": ^22.5.4
   effect: ^3.7.2
   react: 19.0.0-rc-6ebfd5b0-20240818
   react-dom: 19.0.0-rc-6ebfd5b0-20240818

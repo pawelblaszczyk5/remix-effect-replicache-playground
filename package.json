@@ -38,11 +38,8 @@
 	"pnpm": {
 		"peerDependencyRules": {
 			"allowedVersions": {
-				"eslint": "9.9.1"
+				"eslint": "9.10.0"
 			}
-		},
-		"allowedDeprecatedVersions": {
-			"@babel/plugin-proposal-private-methods": "7.18.6"
 		},
 		"allowNonAppliedPatches": false,
 		"overrides": {
