@@ -41,6 +41,9 @@
 				"eslint": "9.10.0"
 			}
 		},
+		"allowedDeprecatedVersions": {
+			"@babel/plugin-proposal-private-methods": "7.18.6"
+		},
 		"allowNonAppliedPatches": false,
 		"overrides": {
 			"@types/react": "catalog:",
