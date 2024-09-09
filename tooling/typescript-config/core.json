@@ -25,6 +25,7 @@
 		"noUncheckedIndexedAccess": true,
 		"forceConsistentCasingInFileNames": true,
 		"useUnknownInCatchVariables": true,
+		"noUncheckedSideEffectImports": true,
 		"types": []
 	}
 }
