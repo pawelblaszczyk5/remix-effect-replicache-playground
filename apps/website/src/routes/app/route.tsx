@@ -25,7 +25,7 @@ export const loader = defineEffectLoader(
 const Route = () => {
 	const { user } = useLoaderData<typeof loader>();
 
-	// TODO [2024-09-15] use useSyncExternalStore for this so it's not starting with false on CSR
+	// TODO [2024-09-30] use useSyncExternalStore for this so it's not starting with false on CSR
 	const [isHydrated, setIsHydrated] = useState(false);
 
 	useEffect(() => {
