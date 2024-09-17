@@ -65,7 +65,10 @@ export const insertCvr = SqlSchema.void({
 		return Effect.gen(function* () {
 			const sql = yield* SqliteClient.SqliteClient;
 
-			return yield* sql`INSERT INTO ${sql("cvr")} ${sql.insert(request)}`;
+			return yield* sql`
+				INSERT INTO
+					${sql("cvr")} ${sql.insert(request)}
+			`;
 		});
 	},
 	Request: Cvr.insert,
@@ -76,7 +79,14 @@ export const findCvrById = SqlSchema.findOne({
 		return Effect.gen(function* () {
 			const sql = yield* SqliteClient.SqliteClient;
 
-			return yield* sql`SELECT * FROM ${sql("cvr")} where ${sql("id")} = ${request}`;
+			return yield* sql`
+				SELECT
+					*
+				FROM
+					${sql("cvr")}
+				WHERE
+					${sql("id")} = ${request};
+			`;
 		});
 	},
 	Request: Cvr.fields.id,
@@ -88,7 +98,14 @@ export const findReplicacheClientGroupById = SqlSchema.findOne({
 		return Effect.gen(function* () {
 			const sql = yield* SqliteClient.SqliteClient;
 
-			return yield* sql`SELECT * FROM ${sql("replicacheClientGroup")} where ${sql("id")} = ${request}`;
+			return yield* sql`
+				SELECT
+					*
+				FROM
+					${sql("replicacheClientGroup")}
+				WHERE
+					${sql("id")} = ${request};
+			`;
 		});
 	},
 	Request: ReplicacheClientGroup.fields.id,
@@ -100,10 +117,14 @@ export const upsertReplicacheClientGroup = SqlSchema.void({
 		return Effect.gen(function* () {
 			const sql = yield* SqliteClient.SqliteClient;
 
-			return yield* sql`INSERT INTO ${sql("replicacheClientGroup")} ${sql.insert(request)} ON CONFLICT(${sql("id")}) DO UPDATE SET ${sql.update(
-				request,
-				["id"],
-			)}`;
+			return yield* sql`
+				INSERT INTO
+					${sql("replicacheClientGroup")} ${sql.insert(request)}
+				ON CONFLICT (${sql("id")}) DO
+				UPDATE
+				SET
+					${sql.update(request, ["id"])}
+			`;
 		});
 	},
 	Request: ReplicacheClientGroup,
@@ -114,7 +135,14 @@ export const findReplicacheClientById = SqlSchema.findOne({
 		return Effect.gen(function* () {
 			const sql = yield* SqliteClient.SqliteClient;
 
-			return yield* sql`SELECT * FROM ${sql("replicacheClient")} where ${sql("id")} = ${request}`;
+			return yield* sql`
+				SELECT
+					*
+				FROM
+					${sql("replicacheClient")}
+				WHERE
+					${sql("id")} = ${request};
+			`;
 		});
 	},
 	Request: ReplicacheClient.fields.id,
@@ -126,7 +154,14 @@ export const findAllReplicacheClientsByClientGroup = SqlSchema.findAll({
 		return Effect.gen(function* () {
 			const sql = yield* SqliteClient.SqliteClient;
 
-			return yield* sql`SELECT * FROM ${sql("replicacheClient")} WHERE ${sql("clientGroupId")} = ${request}`;
+			return yield* sql`
+				SELECT
+					*
+				FROM
+					${sql("replicacheClient")}
+				WHERE
+					${sql("clientGroupId")} = ${request};
+			`;
 		});
 	},
 	Request: ReplicacheClient.fields.clientGroupId,
@@ -138,10 +173,14 @@ export const upsertReplicacheClient = SqlSchema.void({
 		return Effect.gen(function* () {
 			const sql = yield* SqliteClient.SqliteClient;
 
-			return yield* sql`INSERT INTO ${sql("replicacheClient")} ${sql.insert(request)} ON CONFLICT(${sql("id")}) DO UPDATE SET ${sql.update(
-				request,
-				["id"],
-			)}`;
+			return yield* sql`
+				INSERT INTO
+					${sql("replicacheClient")} ${sql.insert(request)}
+				ON CONFLICT (${sql("id")}) DO
+				UPDATE
+				SET
+					${sql.update(request, ["id"])}
+			`;
 		});
 	},
 	Request: ReplicacheClient,
@@ -152,7 +191,10 @@ export const insertTodo = SqlSchema.void({
 		return Effect.gen(function* () {
 			const sql = yield* SqliteClient.SqliteClient;
 
-			return yield* sql`INSERT INTO ${sql("todo")} ${sql.insert({ ...request, version: 1 })}`;
+			return yield* sql`
+				INSERT INTO
+					${sql("todo")} ${sql.insert({ ...request, version: 1 })}
+			`;
 		});
 	},
 	Request: Todo.insert,
@@ -163,12 +205,16 @@ export const deleteTodo = SqlSchema.single({
 		return Effect.gen(function* () {
 			const sql = yield* SqliteClient.SqliteClient;
 
-			yield* sql`DELETE FROM ${sql("todo")} WHERE ${sql.and([
-				sql`${sql("id")} = ${request.id}`,
-				sql`${sql("owner")} = ${request.owner}`,
-			])}`;
+			yield* sql`
+				DELETE FROM ${sql("todo")}
+				WHERE
+					${sql.and([sql`${sql("id")} = ${request.id}`, sql`${sql("owner")} = ${request.owner}`])};
+			`;
 
-			return yield* sql`SELECT changes() as ${sql("rowsAffected")}`;
+			return yield* sql`
+				SELECT
+					CHANGES() AS ${sql("rowsAffected")};
+			`;
 		});
 	},
 	Request: Schema.Struct(Todo.fields).pick("id", "owner"),
@@ -183,9 +229,12 @@ export const findAllTodosForCvr = SqlSchema.findAll({
 			const sql = yield* SqliteClient.SqliteClient;
 
 			return yield* sql`
-				SELECT ${sql.join(", ", false)([sql`${sql("id")}`, sql`${sql("version")}`])} 
-				FROM ${sql("todo")} 
-				WHERE ${sql.or([sql`${sql("owner")} = ${request}`, sql`${sql("isPrivate")} = 0`])}
+				SELECT
+					${sql.join(", ", false)([sql`${sql("id")}`, sql`${sql("version")}`])}
+				FROM
+					${sql("todo")}
+				WHERE
+					${sql.or([sql`${sql("owner")} = ${request}`, sql`${sql("isPrivate")} = 0`])};
 			`;
 		});
 	},
@@ -198,7 +247,14 @@ export const findAllChangedTodos = SqlSchema.findAll({
 		return Effect.gen(function* () {
 			const sql = yield* SqliteClient.SqliteClient;
 
-			return yield* sql`SELECT * FROM ${sql("todo")} WHERE ${sql.in("id", request)}`;
+			return yield* sql`
+				SELECT
+					*
+				FROM
+					${sql("todo")}
+				WHERE
+					${sql.in("id", request)};
+			`;
 		});
 	},
 	Request: Schema.Array(Todo.fields.id),
@@ -210,14 +266,22 @@ export const updateTodoCompletion = SqlSchema.single({
 		return Effect.gen(function* () {
 			const sql = yield* SqliteClient.SqliteClient;
 
-			yield* sql`UPDATE ${sql("todo")} SET ${sql.update(request, ["id", "owner"])}, ${sql("version")} = ${sql("version")} + 1 WHERE ${sql.and(
-				[
+			yield* sql`
+				UPDATE ${sql("todo")}
+				SET
+					${sql.update(request, ["id", "owner"])},
+					${sql("version")} = ${sql("version")} + 1
+				WHERE
+					${sql.and([
 					sql`${sql("id")} = ${request.id}`,
 					sql.or([sql`${sql("owner")} = ${request.owner}`, sql`${sql("isPrivate")} = 0`]),
-				],
-			)}`;
+				])}
+			`;
 
-			return yield* sql`SELECT changes() as ${sql("rowsAffected")}`;
+			return yield* sql`
+				SELECT
+					CHANGES() AS ${sql("rowsAffected")};
+			`;
 		});
 	},
 	Request: Schema.Struct(Todo.fields).pick("id", "owner", "isCompleted"),

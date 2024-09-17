@@ -10,9 +10,9 @@ export const baseTodoTableMigration = Effect.gen(function* () {
 			${sql("createdAt")} INTEGER NOT NULL,
 			${sql("isCompleted")} INTEGER NOT NULL,
 			${sql("isPrivate")} INTEGER NOT NULL,
-			${sql("owner")} text NOT NULL,
-			${sql("text")} text NOT NULL,
-			${sql("version")} integer NOT NULL
-		)
+			${sql("owner")} TEXT NOT NULL,
+			${sql("text")} TEXT NOT NULL,
+			${sql("version")} INTEGER NOT NULL
+		);
 	`;
 });

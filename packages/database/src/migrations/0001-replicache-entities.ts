@@ -6,25 +6,25 @@ export const replicacheEntitiesMigration = Effect.gen(function* () {
 
 	yield* sql`
 		CREATE TABLE ${sql("cvr")} (
-			${sql("id")} text PRIMARY KEY,
-			${sql("entities")} blob NOT NULL,
-			${sql("lastMutationIds")} blob NOT NULL
-		)
+			${sql("id")} TEXT PRIMARY KEY,
+			${sql("entities")} BLOB NOT NULL,
+			${sql("lastMutationIds")} BLOB NOT NULL
+		);
 	`;
 
 	yield* sql`
 		CREATE TABLE ${sql("replicacheClient")} (
-			${sql("id")} text PRIMARY KEY,
-			${sql("clientGroupId")} text NOT NULL,
-			${sql("lastMutationId")} integer NOT NULL
-		)
+			${sql("id")} TEXT PRIMARY KEY,
+			${sql("clientGroupId")} TEXT NOT NULL,
+			${sql("lastMutationId")} INTEGER NOT NULL
+		);
 	`;
 
 	yield* sql`
 		CREATE TABLE ${sql("replicacheClientGroup")} (
-			${sql("id")} text PRIMARY KEY,
-			${sql("cvrVersion")} integer NOT NULL,
-			${sql("userId")} text NOT NULL
-		)
+			${sql("id")} TEXT PRIMARY KEY,
+			${sql("cvrVersion")} INTEGER NOT NULL,
+			${sql("userId")} TEXT NOT NULL
+		);
 	`;
 });
